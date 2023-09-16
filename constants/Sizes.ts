@@ -6,5 +6,6 @@ const { width, height } = Dimensions.get('window')
 export default {
   width,
   height,
-  statusbar: Constants.statusBarHeight
+  statusbar: Constants.statusBarHeight,
+  padding: 20
 };
