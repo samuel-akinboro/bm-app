@@ -7,5 +7,6 @@ export default {
   width,
   height,
   statusbar: Constants.statusBarHeight,
-  padding: 20
+  padding: 20,
+  radius: 20
 };

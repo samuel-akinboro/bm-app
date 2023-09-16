@@ -16,6 +16,7 @@ const Categories = ({
       data={categories}
       style={[styles.container, style]}
       horizontal
+      showsHorizontalScrollIndicator={false}
       keyExtractor={(item, i) => `${item}-${i}`}
       renderItem={({item}) => (
         <TouchableOpacity 
