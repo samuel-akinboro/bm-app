@@ -35,8 +35,10 @@ export default Categories
 
 const styles = StyleSheet.create({
   container: {
-    height: 55,
     paddingHorizontal: Sizes.padding,
+    flexShrink: 1,
+    flexGrow: 0,
+    paddingVertical: 10
   },
   text: {
     fontFamily: 'bold',
