@@ -3,6 +3,7 @@ import React from 'react'
 import { Text, View } from '../Themed'
 import Sizes from '../../constants/Sizes'
 import Colors from '../../constants/Colors'
+import { StarIcon, nikeIcon } from '../../constants/Icons'
 
 const ProductCard = () => {
   return (
@@ -10,9 +11,28 @@ const ProductCard = () => {
       <View>
         <View style={styles.imageContainer}>
           <Image 
+            style={styles.brandIcon}
+            source={nikeIcon}
+          />
+          <Image 
             style={styles.shoeImage}
             source={require('../../assets/images/shoe.png')}
           />
+        </View>
+        <View style={styles.description}>
+          <Text 
+            style={styles.name}
+            ellipsizeMode='tail'
+            numberOfLines={1}
+          >
+            Jordan 1 Retro High Tie Dye
+          </Text>
+          <View style={styles.ratingBox}>
+            <Image source={StarIcon} style={styles.star} />
+            <Text style={styles.rating}>4.5</Text>
+            <Text style={styles.review}>(1045 Reviews)</Text>
+          </View>
+          <Text style={styles.price}>$235,00</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -42,5 +62,45 @@ const styles = StyleSheet.create({
     objectFit: 'contain',
     // width: shoeImageHeight,
     // backgroundColor: 'red',
+  },
+  brandIcon: {
+    position: 'absolute',
+    top: 10,
+    width: 34,
+    height: 34,
+    objectFit: 'contain',
+    left: 20
+  },
+  name: {
+    fontFamily: 'regular',
+    fontSize: 12,
+  },
+  description: {
+    paddingTop: 10
+  },
+  ratingBox: {
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: 10
+  },
+  star: {
+    width: 12,
+    height: 12,
+    objectFit: 'contain'
+  },
+  rating: {
+    fontSize: 11,
+    fontFamily: 'bold',
+    color: Colors.light.text
+  },
+  review: {
+    fontSize: 11,
+    fontFamily: 'regular',
+    color: Colors.light.inactiveText
+  },
+  price: {
+    color: Colors.light.text,
+    fontFamily: 'bold',
+    marginTop: 10
   }
 })

@@ -12,12 +12,11 @@ export default function HomeScreen() {
       <Categories style={{marginTop: 15}} />
       <FlatList
         style={styles.productList}
-        data={['', '', '']}
+        data={Array(10).fill('')}
         numColumns={2}
         columnWrapperStyle={{justifyContent: 'space-between'}}
-        renderItem={({item}) => (
-          <ProductCard />
-        )}
+        renderItem={({item}) => <ProductCard />}
+        ListFooterComponent={<View style={{height: 40}} />}
       />
     </View>
   );
