@@ -2,6 +2,7 @@ import { Image, StyleSheet, TouchableOpacity } from 'react-native'
 import { View, Text } from '../Themed'
 import React from 'react'
 import Sizes from '../../constants/Sizes'
+import Colors from '../../constants/Colors'
 
 const Header = () => {
   return (
@@ -26,7 +27,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'bold',
-    fontSize: 30
+    fontSize: 30,
+    color: Colors.light.text
   },
   cartIcon: {
     height: 24,
