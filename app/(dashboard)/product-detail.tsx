@@ -81,7 +81,7 @@ export default function ProductDetailScreen() {
         
         {/* Details */}
         <View style={styles.section}>
-          <View style={styles.description}>
+          <View style={styles.info}>
             <Text 
               style={styles.name}
               ellipsizeMode='tail'
@@ -111,6 +111,8 @@ export default function ProductDetailScreen() {
             </View>
           </View>
         </View>
+
+        {/* Sizes */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Size</Text>
           <View style={styles.availableSizes}>
@@ -120,6 +122,12 @@ export default function ProductDetailScreen() {
               </TouchableOpacity>
             ))}
           </View>
+        </View>
+
+        {/* Description */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Description</Text>
+          <Text style={styles.description}>Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a pair.</Text>
         </View>
       </ScrollView>
       <View style={styles.footer}></View>
@@ -194,7 +202,7 @@ const styles = StyleSheet.create({
   section: {
     marginTop: Sizes.padding
   },
-  description: {
+  info: {
     paddingTop: 10
   },
   ratingBox: {
@@ -247,5 +255,10 @@ const styles = StyleSheet.create({
   },
   sizeBtnText: {
     fontFamily: 'bold',
+  },
+  description: {
+    color: '#6F6F6F',
+    fontFamily: 'regular',
+    lineHeight: 24
   }
 });
