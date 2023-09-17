@@ -29,6 +29,9 @@ export default function RootLayout() {
             </TouchableOpacity>
           ),
           headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: '#fff'
+          }
         }}
       />
       {/* <Stack.Screen name="modal" options={{ presentation: 'modal' }} /> */}

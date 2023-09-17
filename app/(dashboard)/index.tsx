@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity, Image, StatusBar } from 'react-native';
 import { Text, View } from '../../components/Themed';
 import Header from '../../components/home/Header';
 import Sizes from '../../constants/Sizes';
@@ -10,6 +10,7 @@ import Colors from '../../constants/Colors';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
+      <StatusBar barStyle='dark-content' />
       <Header />
       <Categories style={{marginTop: 15}} />
       <FlatList

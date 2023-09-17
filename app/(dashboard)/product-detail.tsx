@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView, Animated } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView, Animated, StatusBar } from 'react-native';
 import { Text, View } from '../../components/Themed';
 import Header from '../../components/home/Header';
 import Sizes from '../../constants/Sizes';
@@ -16,7 +16,10 @@ export default function ProductDetailScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar barStyle='dark-content' />
       <ScrollView style={styles.scrollView}>
+
+        {/* Carousel */}
         <View style={styles.carousel}>
           <FlatList
             style={styles.flatlist}
@@ -67,6 +70,12 @@ export default function ProductDetailScreen() {
             </View>
           </View>
         </View>
+        {/* End of Carousel */}
+        
+        {/* Details */}
+        <View style={styles.section}>
+          
+        </View>
       </ScrollView>
       <View style={styles.footer}></View>
     </SafeAreaView>
@@ -104,17 +113,17 @@ const styles = StyleSheet.create({
     gap: Sizes.width * 0.02
   },
   dot: {
-    width: Sizes.width * 0.03,
-    height: Sizes.width * 0.03,
+    width: Sizes.width * 0.02,
+    height: Sizes.width * 0.02,
     backgroundColor: Colors.light.text,
-    borderRadius: Sizes.width * 0.03
+    borderRadius: Sizes.width * 0.02
   },
   widget: {
     flexDirection: 'row',
     backgroundColor: '#fff',
     padding: Sizes.width * 0.02,
     borderRadius: Sizes.radius,
-    gap: Sizes.width * 0.02,
+    gap: Sizes.width * 0.03,
     shadowColor: "#000000",
     shadowOffset: {
       width: 0,
@@ -136,5 +145,8 @@ const styles = StyleSheet.create({
   },
   carousel: {
     paddingTop: Sizes.padding / 2
+  },
+  section: {
+    marginTop: Sizes.padding
   }
 });
