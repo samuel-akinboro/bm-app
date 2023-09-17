@@ -17,7 +17,7 @@ export default function ProductDetailScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <View>
+        <View style={styles.carousel}>
           <FlatList
             style={styles.flatlist}
             data={['', '', '']}
@@ -61,7 +61,7 @@ export default function ProductDetailScreen() {
             <View style={styles.widget}>
               {demoColors.map((color, i) => (
                 <TouchableOpacity key={i} style={[styles.pickColor, {backgroundColor: color}]} onPress={() => setSelectedColor(color)}>
-                  {selectedColor === color && <Image source={checkIcon} style={{width: '50%', height: '50%', objectFit: 'contain'}} />}
+                  {selectedColor === color && <Image source={checkIcon} style={{width: '50%', height: '50%', objectFit: 'contain', tintColor: color === '#fff' ? Colors.light.text : '#fff'}} />}
                 </TouchableOpacity>
               ))}
             </View>
@@ -133,5 +133,8 @@ const styles = StyleSheet.create({
     borderColor: Colors.light.text,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  carousel: {
+    paddingTop: Sizes.padding / 2
   }
 });
