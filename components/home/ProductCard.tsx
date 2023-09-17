@@ -8,36 +8,34 @@ import { Link } from 'expo-router'
 
 const ProductCard = () => {
   return (
-    <Link href='/product-detail' asChild>
-      <TouchableOpacity style={styles.container}>
-        <View>
-          <View style={styles.imageContainer}>
-            <Image 
-              style={styles.brandIcon}
-              source={nikeIcon}
-            />
-            <Image 
-              style={styles.shoeImage}
-              source={require('../../assets/images/shoe.png')}
-            />
-          </View>
-          <View style={styles.description}>
-            <Text 
-              style={styles.name}
-              ellipsizeMode='tail'
-              numberOfLines={1}
-            >
-              Jordan 1 Retro High Tie Dye
-            </Text>
-            <View style={styles.ratingBox}>
-              <Image source={StarIcon} style={styles.star} />
-              <Text style={styles.rating}>4.5</Text>
-              <Text style={styles.review}>(1045 Reviews)</Text>
-            </View>
-            <Text style={styles.price}>$235,00</Text>
-          </View>
+    <Link href='/product-detail' style={styles.container}>
+      <View>
+        <View style={styles.imageContainer}>
+          <Image 
+            style={styles.brandIcon}
+            source={nikeIcon}
+          />
+          <Image 
+            style={styles.shoeImage}
+            source={require('../../assets/images/shoe.png')}
+          />
         </View>
-      </TouchableOpacity>
+        <View style={styles.description}>
+          <Text 
+            style={styles.name}
+            ellipsizeMode='tail'
+            numberOfLines={1}
+          >
+            Jordan 1 Retro High Tie Dye
+          </Text>
+          <View style={styles.ratingBox}>
+            <Image source={StarIcon} style={styles.star} />
+            <Text style={styles.rating}>4.5</Text>
+            <Text style={styles.review}>(1045 Reviews)</Text>
+          </View>
+          <Text style={styles.price}>$235,00</Text>
+        </View>
+      </View>
     </Link>
   )
 }
@@ -50,7 +48,7 @@ const shoeImageHeight = cardWidth * 0.55
 const styles = StyleSheet.create({
   container: {
     width: cardWidth,
-    marginBottom: 30
+    marginBottom: 30,
   },
   imageContainer: {
     borderRadius:Sizes.radius,
