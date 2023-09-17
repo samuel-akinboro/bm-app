@@ -88,6 +88,28 @@ export default function OrderSummaryScreen() {
           </View>
         </View>
 
+        {/* payment detail */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Payment Detail</Text>
+          <View style={styles.subSectionRow}>
+            <Text style={styles.itemDetail}>Sub Total</Text>
+            <Text style={[styles.itemPrice, {fontSize: 16}]}>$705.00</Text>
+          </View>
+          <View style={[styles.subSectionRow, {marginTop: 20}]}>
+            <Text style={styles.itemDetail}>Shipping</Text>
+            <Text style={[styles.itemPrice, {fontSize: 16}]}>$20.00</Text>
+          </View>
+          <View style={{
+            height: 1,
+            backgroundColor: '#F3F3F3',
+            marginVertical: 15
+          }} />
+          <View style={styles.subSectionRow}>
+            <Text style={styles.itemDetail}>Total Order</Text>
+            <Text style={[styles.itemPrice, {fontSize: 18}]}>$725.00</Text>
+          </View>
+        </View>
+
         {/* spacing */}
         <View style={{height: 50}} />
       </ScrollView>
