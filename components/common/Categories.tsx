@@ -4,16 +4,19 @@ import React, { useState } from 'react'
 import Sizes from '../../constants/Sizes'
 import Colors from '../../constants/Colors'
 
-const categories = ['All', 'Nike', 'Jordan', 'Adidas', 'Reebok', 'Vans', 'Puma', '']
+type Props = {
+  data?: string[]
+}
 
 const Categories = ({
-  style
-}: ViewProps) => {
+  style,
+  data
+}: ViewProps & Props) => {
   const [activeTab, setActiveTab] = useState('all')
   
   return (
     <FlatList 
-      data={categories}
+      data={data}
       style={[styles.container, style]}
       horizontal
       showsHorizontalScrollIndicator={false}

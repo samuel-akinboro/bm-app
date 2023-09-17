@@ -2,7 +2,7 @@ import { FlatList, StyleSheet, TouchableOpacity, Image, StatusBar } from 'react-
 import { Text, View } from '../../components/Themed';
 import Header from '../../components/home/Header';
 import Sizes from '../../constants/Sizes';
-import Categories from '../../components/home/Categories';
+import Categories from '../../components/common/Categories';
 import ProductCard from '../../components/home/ProductCard';
 import { filterWhiteIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
@@ -12,7 +12,10 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <StatusBar barStyle='dark-content' />
       <Header />
-      <Categories style={{marginTop: 15}} />
+      <Categories 
+        data={['All', 'Nike', 'Jordan', 'Adidas', 'Reebok', 'Vans', 'Puma', '']}
+        style={{marginTop: 15}} 
+      />
       <FlatList
         style={styles.productList}
         data={Array(10).fill('')}
