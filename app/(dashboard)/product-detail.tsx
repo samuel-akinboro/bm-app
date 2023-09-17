@@ -9,6 +9,7 @@ import Colors from '../../constants/Colors';
 import Gallery from '../../components/common/Gallery';
 import { useRef, useState } from 'react';
 import ReviewCard from '../../components/common/ReviewCard';
+import { Link } from 'expo-router';
 
 const demoDetails = {
   ratings: 3.5,
@@ -141,9 +142,11 @@ export default function ProductDetailScreen() {
             <ReviewCard />
             <ReviewCard />
           </View>
-          <TouchableOpacity style={styles.seeReviewsBtn}>
-            <Text style={styles.seeReviewsBtnText}>SEE ALL REVIEW</Text>
-          </TouchableOpacity>
+          <Link href='/product-review' asChild>
+            <TouchableOpacity style={styles.seeReviewsBtn}>
+              <Text style={styles.seeReviewsBtnText}>SEE ALL REVIEW</Text>
+            </TouchableOpacity>
+          </Link>
         </View>
 
         {/* spacing */}
