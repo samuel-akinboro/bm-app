@@ -26,14 +26,14 @@ const ReviewCard = () => {
             Array(Math.floor(rating))
               .fill('')
               .map((_, i) => (
-                <Image source={StarIcon} style={styles.star} />
+                <Image key={i} source={StarIcon} style={styles.star} />
               ))
           }
           {
             Array(Math.ceil(5 - rating))
               .fill('')
               .map((_, i) => (
-                <Image source={StarIcon} style={[styles.star, {tintColor: Colors.light.inactiveText}]} />
+                <Image key={i} source={StarIcon} style={[styles.star, {tintColor: Colors.light.inactiveText}]} />
               ))
           }
         </View>

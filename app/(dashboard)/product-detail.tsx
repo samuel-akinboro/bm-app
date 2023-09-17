@@ -98,14 +98,14 @@ export default function ProductDetailScreen() {
                   Array(Math.floor(demoDetails.ratings))
                     .fill('')
                     .map((_, i) => (
-                      <Image source={StarIcon} style={styles.star} />
+                      <Image source={StarIcon} style={styles.star} key={i} />
                     ))
                 }
                 {
                   Array(Math.ceil(5 - demoDetails.ratings))
                     .fill('')
                     .map((_, i) => (
-                      <Image source={StarIcon} style={[styles.star, {tintColor: Colors.light.inactiveText}]} />
+                      <Image key={i} source={StarIcon} style={[styles.star, {tintColor: Colors.light.inactiveText}]} />
                     ))
                 }
               </View>
@@ -120,7 +120,7 @@ export default function ProductDetailScreen() {
           <Text style={styles.sectionTitle}>Size</Text>
           <View style={styles.availableSizes}>
             {demoDetails.availableSizes.map((size, i) => (
-              <TouchableOpacity style={[styles.sizeBtn, {backgroundColor: selectedSize === size ? Colors.light.text : '#fff'}]} onPress={() => setSelectedSize(size)}>
+              <TouchableOpacity key={i} style={[styles.sizeBtn, {backgroundColor: selectedSize === size ? Colors.light.text : '#fff'}]} onPress={() => setSelectedSize(size)}>
                 <Text style={[styles.sizeBtnText, {color: selectedSize === size ? '#fff' : '#6F6F6F'}]}>{size}</Text>
               </TouchableOpacity>
             ))}
@@ -140,12 +140,24 @@ export default function ProductDetailScreen() {
             <ReviewCard />
             <ReviewCard />
             <ReviewCard />
-            <ReviewCard />
-            <ReviewCard />
           </View>
+          <TouchableOpacity style={styles.seeReviewsBtn}>
+            <Text style={styles.seeReviewsBtnText}>SEE ALL REVIEW</Text>
+          </TouchableOpacity>
         </View>
+
+        {/* spacing */}
+        <View style={{height: 50}} />
       </ScrollView>
-      <View style={styles.footer}></View>
+      <View style={styles.footer}>
+        <View style={styles.footerLeft}>
+          <Text style={styles.footerPriceTag}>Price</Text>
+          <Text style={styles.footerPrice}>$235.00</Text>
+        </View>
+        <TouchableOpacity style={styles.footerBtn}>
+          <Text style={styles.footerBtnText}>ADD TO CART</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
@@ -163,7 +175,45 @@ const styles = StyleSheet.create({
     borderRadius: Sizes.radius
   },
   footer: {
-    height: 40
+    height: 90,
+    shadowColor: "#000000",
+    shadowOffset: {
+      width: 0,
+      height: -2,
+    },
+    shadowOpacity:  0.05,
+    shadowRadius: 1.54,
+    elevation: -2,
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: Sizes.padding
+  },
+  footerLeft: {
+    gap: 10
+  },
+  footerPriceTag: {
+    fontSize: 12,
+    fontFamily: 'regular',
+    color: Colors.light.inactiveText
+  },
+  footerPrice: {
+    fontSize: 20,
+    fontFamily: 'bold',
+    color: Colors.light.text
+  },
+  footerBtn: {
+    backgroundColor: Colors.light.text,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 13,
+    paddingHorizontal: 24,
+    borderRadius: 100
+  },
+  footerBtnText: {
+    color: '#fff',
+    fontFamily: 'bold'
   },
   widgetBox: {
     flexDirection: 'row',
@@ -278,5 +328,16 @@ const styles = StyleSheet.create({
   },
   reviewsContainer: {
     gap: 20
+  },
+  seeReviewsBtn: {
+    marginTop: 35,
+    paddingVertical: 15,
+    borderWidth: 1,
+    borderColor: '#E7E7E7',
+    borderRadius: 100
+  },
+  seeReviewsBtnText: {
+    fontFamily: 'bold',
+    textAlign: 'center'
   }
 });
