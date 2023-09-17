@@ -8,10 +8,13 @@ import { StarIcon, checkIcon, filterWhiteIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import Gallery from '../../components/common/Gallery';
 import { useRef, useState } from 'react';
+import ReviewCard from '../../components/common/ReviewCard';
 
 const demoDetails = {
   ratings: 3.5,
-  reviews: 1023,
+  reviews: {
+    count: 1023
+  },
   availableSizes: ["39", "39.5", "40", "40.5", "41"],
   availableColors: ["#fff", "#101010", "#638b8b", "#2952cc"]
 }
@@ -107,7 +110,7 @@ export default function ProductDetailScreen() {
                 }
               </View>
               <Text style={styles.rating}>{demoDetails.ratings}</Text>
-              <Text style={styles.review}>({demoDetails.reviews} Reviews)</Text>
+              <Text style={styles.review}>({demoDetails.reviews.count} Reviews)</Text>
             </View>
           </View>
         </View>
@@ -128,6 +131,18 @@ export default function ProductDetailScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Description</Text>
           <Text style={styles.description}>Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a pair.</Text>
+        </View>
+
+        {/* Reviews */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Reviews ({demoDetails.reviews.count})</Text>
+          <View style={styles.reviewsContainer}>
+            <ReviewCard />
+            <ReviewCard />
+            <ReviewCard />
+            <ReviewCard />
+            <ReviewCard />
+          </View>
         </View>
       </ScrollView>
       <View style={styles.footer}></View>
@@ -260,5 +275,8 @@ const styles = StyleSheet.create({
     color: '#6F6F6F',
     fontFamily: 'regular',
     lineHeight: 24
+  },
+  reviewsContainer: {
+    gap: 20
   }
 });
