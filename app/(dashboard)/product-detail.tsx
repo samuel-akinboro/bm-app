@@ -1,10 +1,7 @@
 import { FlatList, StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView, Animated, StatusBar } from 'react-native';
 import { Text, View } from '../../components/Themed';
-import Header from '../../components/home/Header';
 import Sizes from '../../constants/Sizes';
-import Categories from '../../components/home/Categories';
-import ProductCard from '../../components/home/ProductCard';
-import { StarIcon, checkIcon, filterWhiteIcon } from '../../constants/Icons';
+import { StarIcon, checkIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import Gallery from '../../components/common/Gallery';
 import { useRef, useState } from 'react';

@@ -4,14 +4,17 @@ import React from 'react'
 import Sizes from '../../constants/Sizes'
 import Colors from '../../constants/Colors'
 import { cartIcon } from '../../constants/Icons'
+import { Link } from 'expo-router'
 
 const Header = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Discover</Text>
-      <TouchableOpacity>
-        <Image style={styles.cartIcon} source={cartIcon} />
-      </TouchableOpacity>
+      <Link href='/order-summary' asChild>
+        <TouchableOpacity>
+          <Image style={styles.cartIcon} source={cartIcon} />
+        </TouchableOpacity>
+      </Link>
     </View>
   )
 }

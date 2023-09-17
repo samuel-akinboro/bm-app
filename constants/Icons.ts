@@ -4,4 +4,5 @@ export const cartIcon = require('../assets/images/cart.png');
 export const checkIcon = require('../assets/images/check.png');
 export const cartEmptyIcon = require('../assets/images/cart-empty.png');
 export const backIcon = require('../assets/images/back.png');
+export const chevronRightIcon = require('../assets/images/chevron-right.png');
 export const filterWhiteIcon = require('../assets/images/filter-white.png');

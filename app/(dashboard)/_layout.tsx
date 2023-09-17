@@ -4,7 +4,6 @@ import { StarIcon, backIcon, cartEmptyIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import { Text, View } from '../../components/Themed';
 
-
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const navigation = useNavigation();
@@ -49,6 +48,21 @@ export default function RootLayout() {
               <Image source={StarIcon} style={{width: 20, height: 20, objectFit: 'contain'}} />
               <Text style={{fontFamily: 'bold'}}>4.5</Text>
             </View>
+          ),
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: '#fff'
+          }
+        }}
+      />
+      <Stack.Screen 
+        name="order-summary" 
+        options={{
+          headerTitle: 'Order Summary',
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Image source={backIcon} style={{width: 24, height: 24, objectFit: 'contain'}} />
+            </TouchableOpacity>
           ),
           headerShadowVisible: false,
           headerStyle: {
