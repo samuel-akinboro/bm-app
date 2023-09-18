@@ -1,27 +1,11 @@
-import { FlatList, StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView, Animated, StatusBar } from 'react-native';
+import { StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView, StatusBar } from 'react-native';
 import { Text, View } from '../../components/Themed';
 import Sizes from '../../constants/Sizes';
-import { StarIcon, checkIcon, chevronRightIcon, filterWhiteIcon } from '../../constants/Icons';
+import { chevronRightIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
-import Gallery from '../../components/common/Gallery';
-import { useRef, useState } from 'react';
-import ReviewCard from '../../components/common/ReviewCard';
 import { Link } from 'expo-router';
 
-const demoDetails = {
-  ratings: 3.5,
-  reviews: {
-    count: 1023
-  },
-  availableSizes: ["39", "39.5", "40", "40.5", "41"],
-  availableColors: ["#fff", "#101010", "#638b8b", "#2952cc"]
-}
-
 export default function OrderSummaryScreen() {
-  const scrollX = useRef(new Animated.Value(0)).current;
-  const [selectedSize, setSelectedSize] = useState(demoDetails.availableSizes[0])
-  const [selectedColor, setSelectedColor] = useState(demoDetails.availableColors[0]);
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle='dark-content' />

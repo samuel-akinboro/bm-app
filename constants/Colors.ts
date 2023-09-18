@@ -3,7 +3,8 @@ export default {
     text: '#101010',
     inactiveText: '#B7B7B7',
     red: '#FF4C5E',
-    gray: '#f3f3f3'
+    gray: '#f3f3f3',
+    gray2: '#666666'
   },
   dark: {},
 };

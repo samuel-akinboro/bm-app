@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Discover</Text>
-      <Link href='/order-summary' asChild>
+      <Link href='/cart' asChild>
         <TouchableOpacity>
           <Image style={styles.cartIcon} source={cartIcon} />
         </TouchableOpacity>

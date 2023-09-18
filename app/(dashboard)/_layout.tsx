@@ -56,6 +56,21 @@ export default function RootLayout() {
         }}
       />
       <Stack.Screen 
+        name="cart" 
+        options={{
+          headerTitle: 'Cart',
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Image source={backIcon} style={{width: 24, height: 24, objectFit: 'contain'}} />
+            </TouchableOpacity>
+          ),
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: '#fff'
+          }
+        }}
+      />
+      <Stack.Screen 
         name="order-summary" 
         options={{
           headerTitle: 'Order Summary',
