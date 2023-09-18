@@ -2,6 +2,7 @@ export const StarIcon = require('../assets/images/star.png');
 export const nikeIcon = require('../assets/images/nike.png');
 export const cartIcon = require('../assets/images/cart.png');
 export const checkIcon = require('../assets/images/check.png')
+export const closeIcon = require('../assets/images/close.png')
 export const trashIcon = require('../assets/images/trash.png');;
 export const addCircleIcon = require('../assets/images/add-circle.png');
 export const minusCircleIcon = require('../assets/images/minus-cirlce.png');

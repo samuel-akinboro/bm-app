@@ -1,12 +1,13 @@
-import { FlatList, StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView, Animated, StatusBar } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView, Animated, StatusBar, TextInput, Keyboard } from 'react-native';
 import { Text, View } from '../../components/Themed';
 import Sizes from '../../constants/Sizes';
-import { StarIcon, checkIcon } from '../../constants/Icons';
+import { StarIcon, addCircleIcon, checkIcon, closeIcon, minusCircleIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import Gallery from '../../components/common/Gallery';
 import { useRef, useState } from 'react';
 import ReviewCard from '../../components/common/ReviewCard';
 import { Link } from 'expo-router';
+import Modal from "react-native-modal";
 
 const demoDetails = {
   ratings: 3.5,
@@ -158,6 +159,58 @@ export default function ProductDetailScreen() {
           <Text style={styles.footerBtnText}>ADD TO CART</Text>
         </TouchableOpacity>
       </View>
+
+      {/* Modal */}
+      <Modal
+        isVisible={true}
+        style={{
+          justifyContent: 'flex-end',
+          margin: 0
+        }}
+        avoidKeyboard={true}
+      >
+        <View style={styles.modalContainer}>
+
+          {/* top */}
+          <View style={styles.modalTop}>
+            <Text style={styles.modalTopText}>Add to cart</Text>
+            <TouchableOpacity>
+              <Image source={closeIcon} style={styles.modalTopIcon} />
+            </TouchableOpacity>
+          </View>
+
+          {/* Quantity*/}
+          <View style={styles.quantityBox}>
+            <Text style={styles.quantityTitle}>Quantity</Text>
+            <View style={styles.quantityRow}>
+              <TextInput
+                keyboardType='numeric'
+                value="1"
+                style={styles.quantityInput}
+              />
+              <View style={styles.quantityBtns}>
+                <TouchableOpacity>
+                  <Image source={minusCircleIcon} style={styles.quantityBtn} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Image source={addCircleIcon} style={styles.quantityBtn} />
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+          
+          {/* footer */}
+          <View style={styles.modalFooter}>
+            <View style={styles.footerLeft}>
+              <Text style={styles.footerPriceTag}>Total Price</Text>
+              <Text style={styles.footerPrice}>$235.00</Text>
+            </View>
+            <TouchableOpacity style={styles.footerBtn}>
+              <Text style={styles.footerBtnText}>ADD TO CART</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -339,5 +392,65 @@ const styles = StyleSheet.create({
   seeReviewsBtnText: {
     fontFamily: 'bold',
     textAlign: 'center'
+  },
+  modalContainer: {
+    backgroundColor: '#fff',
+    padding: Sizes.padding,
+    borderTopRightRadius: Sizes.radius,
+    borderTopLeftRadius: Sizes.radius
+  },
+  modalFooter: {
+    height: 57,
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: Keyboard.isVisible() ? 0 : 15,
+    marginTop: 5
+  },
+  modalTop: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  modalTopText: {
+    fontSize: 20,
+    fontFamily: 'bold',
+    color: Colors.light.text
+  },
+  modalTopIcon: {
+    height: 18,
+    width: 18,
+    objectFit: 'contain'
+  },
+  quantityTitle: {
+    fontFamily: 'bold',
+    color: Colors.light.text
+  },
+  quantityBox: {
+    marginVertical: 20,
+    borderBottomWidth: 1,
+    borderColor: Colors.light.text,
+    paddingBottom: 10
+  },
+  quantityRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 15
+  },
+  quantityInput: {
+    flex: 1,
+    paddingVertical: 10,
+    paddingTop: 15
+  },
+  quantityBtns: {
+    flexDirection: 'row',
+    gap: 15,
+    alignItems: 'center'
+  },
+  quantityBtn: {
+    objectFit: 'contain',
+    height: 24, 
+    width: 24
   }
 });
