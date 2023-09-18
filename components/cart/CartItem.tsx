@@ -6,7 +6,7 @@ import Colors from '../../constants/Colors';
 import Sizes from '../../constants/Sizes';
 
 const CartItem = () => {
-  const renderRightActions = (progress, dragX) => {
+  const renderRightActions = (_:any, dragX:Animated.AnimatedInterpolation<string>) => {
     const trans = dragX.interpolate({
       inputRange: [-100, 0],
       outputRange: [0, Sizes.width * 0.225],
