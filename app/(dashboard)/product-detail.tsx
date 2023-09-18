@@ -20,6 +20,7 @@ const demoDetails = {
 
 export default function ProductDetailScreen() {
   const scrollX = useRef(new Animated.Value(0)).current;
+  const [showAddToCartModal, setShowAddToCartModal] = useState(false);
   const [selectedSize, setSelectedSize] = useState(demoDetails.availableSizes[0])
   const [selectedColor, setSelectedColor] = useState(demoDetails.availableColors[0]);
 
@@ -155,21 +156,30 @@ export default function ProductDetailScreen() {
           <Text style={styles.footerPriceTag}>Price</Text>
           <Text style={styles.footerPrice}>$235.00</Text>
         </View>
-        <TouchableOpacity style={styles.footerBtn}>
+        <TouchableOpacity 
+          style={styles.footerBtn}
+          onPress={() => setShowAddToCartModal(true)}
+        >
           <Text style={styles.footerBtnText}>ADD TO CART</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Modal */}
+      {/* Add to Cart Modal */}
       <Modal
-        isVisible={true}
+        isVisible={showAddToCartModal}
         style={{
           justifyContent: 'flex-end',
           margin: 0
         }}
+        swipeDirection="down"
         avoidKeyboard={true}
-      >
+        onBackButtonPress={() => setShowAddToCartModal(false)}
+        onDismiss={() => setShowAddToCartModal(false)}
+        onBackdropPress={() => setShowAddToCartModal(false)}
+        onSwipeComplete={() => setShowAddToCartModal(false)}
+      > 
         <View style={styles.modalContainer}>
+          <View style={styles.modalHandle} />
 
           {/* top */}
           <View style={styles.modalTop}>
@@ -408,10 +418,18 @@ const styles = StyleSheet.create({
     marginBottom: Keyboard.isVisible() ? 0 : 15,
     marginTop: 5
   },
+  modalHandle: {
+    height: 4,
+    width: 44,
+    backgroundColor: '#E7E7E7',
+    borderRadius: 10,
+    alignSelf: 'center'
+  },
   modalTop: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginTop: 25
   },
   modalTopText: {
     fontSize: 20,
