@@ -19,12 +19,19 @@ export default function RootLayout() {
         options={{
           headerTitle: '',
           headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity 
+              onPress={() => navigation.goBack()}
+              style={{
+                padding: 5
+              }}
+            >
               <Image source={backIcon} style={{width: 24, height: 24, objectFit: 'contain'}} />
             </TouchableOpacity>
           ),
           headerRight: () => (
-            <TouchableOpacity>
+            <TouchableOpacity style={{
+              padding: 5
+            }}>
               <Image source={cartEmptyIcon} style={{width: 24, height: 24, objectFit: 'contain'}} />
             </TouchableOpacity>
           ),
@@ -38,8 +45,16 @@ export default function RootLayout() {
         name="product-review" 
         options={{
           headerTitle: 'Review',
+          headerTitleStyle: {
+            color: Colors.light.text
+          },
           headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity 
+              onPress={() => navigation.goBack()}
+              style={{
+                padding: 5
+              }}
+            >
               <Image source={backIcon} style={{width: 24, height: 24, objectFit: 'contain'}} />
             </TouchableOpacity>
           ),
@@ -59,14 +74,22 @@ export default function RootLayout() {
         name="cart" 
         options={{
           headerTitle: 'Cart',
+          headerTitleStyle: {
+            color: Colors.light.text
+          },
           headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity 
+              onPress={() => navigation.goBack()}
+              style={{
+                padding: 5
+              }}
+            >
               <Image source={backIcon} style={{width: 24, height: 24, objectFit: 'contain'}} />
             </TouchableOpacity>
           ),
           headerShadowVisible: false,
           headerStyle: {
-            backgroundColor: '#fff'
+            backgroundColor: '#fff',
           }
         }}
       />
@@ -74,8 +97,16 @@ export default function RootLayout() {
         name="order-summary" 
         options={{
           headerTitle: 'Order Summary',
+          headerTitleStyle: {
+            color: Colors.light.text
+          },
           headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity 
+              onPress={() => navigation.goBack()}
+              style={{
+                padding: 5
+              }}
+            >
               <Image source={backIcon} style={{width: 24, height: 24, objectFit: 'contain'}} />
             </TouchableOpacity>
           ),
