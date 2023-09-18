@@ -7,6 +7,8 @@ import { Link } from 'expo-router';
 import { FlatList } from 'react-native-gesture-handler';
 import { useState } from 'react';
 import RangePicker from '../../components/common/RangePicker';
+import FilterBy from '../../components/common/FilterBy';
+import FilterByColor from '../../components/common/FilterByColor';
 
 export default function FilterScreen() {
   const [selectedBrand, setSelectedBrand] = useState(null);
@@ -43,6 +45,36 @@ export default function FilterScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Price Range</Text>
           <RangePicker />
+        </View>
+
+        {/* Sort By */}
+        <View style={styles.sectionNoPadding}>
+          <Text style={styles.sectionNoPaddingTitle}>Sort By</Text>
+          <FilterBy data={[
+            'Most Recent',
+            'Lowest Price',
+            'Highest Price'
+          ]} />
+        </View>
+
+        {/* Gender */}
+        <View style={styles.sectionNoPadding}>
+          <Text style={styles.sectionNoPaddingTitle}>Gender</Text>
+          <FilterBy data={[
+            'Man',
+            'Woman',
+            'Unisex'
+          ]} />
+        </View>
+
+        {/* Color */}
+        <View style={styles.sectionNoPadding}>
+          <Text style={styles.sectionNoPaddingTitle}>Color</Text>
+          <FilterByColor data={[
+            {value: '#FF4C5E', name: 'Red'},
+            {value: '#101010', name: 'Black'},
+            {value: '#FFF', name: 'White'}
+          ]} />
         </View>
 
         {/* spacing */}
