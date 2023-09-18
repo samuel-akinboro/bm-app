@@ -60,7 +60,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colors.light.red,
-    padding: Sizes.padding,
+    width: Sizes.width * 0.225,
+    borderTopLeftRadius: Sizes.radius,
+    borderBottomLeftRadius: Sizes.radius
   },
   deleteIcon: {
     width: 24,
