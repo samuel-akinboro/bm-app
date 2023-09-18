@@ -6,6 +6,7 @@ import Categories from '../../components/common/Categories';
 import ProductCard from '../../components/home/ProductCard';
 import { filterWhiteIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
+import { Link } from 'expo-router';
 
 export default function HomeScreen() {
   return (
@@ -24,10 +25,12 @@ export default function HomeScreen() {
         renderItem={({item}) => <ProductCard />}
         ListFooterComponent={<View style={{height: 80}} />}
       />
-      <TouchableOpacity style={styles.filterBtn}>
-        <Image source={filterWhiteIcon} style={styles.filterIcon} />
-        <Text style={styles.filterBtnText}>FILTER</Text>
-      </TouchableOpacity>
+      <Link href='/filter' asChild>
+        <TouchableOpacity style={styles.filterBtn}>
+          <Image source={filterWhiteIcon} style={styles.filterIcon} />
+          <Text style={styles.filterBtnText}>FILTER</Text>
+        </TouchableOpacity>
+      </Link>
     </View>
   );
 }

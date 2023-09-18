@@ -94,6 +94,29 @@ export default function RootLayout() {
         }}
       />
       <Stack.Screen 
+        name="filter" 
+        options={{
+          headerTitle: 'Filter',
+          headerTitleStyle: {
+            color: Colors.light.text
+          },
+          headerLeft: () => (
+            <TouchableOpacity 
+              onPress={() => navigation.goBack()}
+              style={{
+                padding: 5
+              }}
+            >
+              <Image source={backIcon} style={{width: 24, height: 24, objectFit: 'contain'}} />
+            </TouchableOpacity>
+          ),
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: '#fff',
+          }
+        }}
+      />
+      <Stack.Screen 
         name="order-summary" 
         options={{
           headerTitle: 'Order Summary',
