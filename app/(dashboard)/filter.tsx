@@ -78,15 +78,14 @@ export default function FilterScreen() {
         </View>
 
         {/* spacing */}
-        <View style={{height: 50}} />
+        <View style={{height: 70}} />
       </ScrollView>
       <View style={styles.footer}>
-        <View style={styles.footerLeft}>
-          <Text style={styles.footerPriceTag}>Grand Total</Text>
-          <Text style={styles.footerPrice}>$235.00</Text>
-        </View>
+        <TouchableOpacity style={[styles.footerBtn, {borderWidth: 1, borderColor: '#E7E7E7', backgroundColor: '#fff'}]}>
+          <Text style={[styles.footerBtnText, {color: Colors.light.text}]}>RESET (4)</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.footerBtn}>
-          <Text style={styles.footerBtnText}>PAYMENT</Text>
+          <Text style={styles.footerBtnText}>APPLY</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
