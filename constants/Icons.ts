@@ -5,6 +5,7 @@ export const checkIcon = require('../assets/images/check.png')
 export const closeIcon = require('../assets/images/close.png')
 export const trashIcon = require('../assets/images/trash.png');;
 export const addCircleIcon = require('../assets/images/add-circle.png');
+export const tickCircleIcon = require('../assets/images/tick-circle.png');
 export const minusCircleIcon = require('../assets/images/minus-cirlce.png');
 export const cartEmptyIcon = require('../assets/images/cart-empty.png');
 export const backIcon = require('../assets/images/back.png');

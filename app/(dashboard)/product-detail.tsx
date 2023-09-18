@@ -1,12 +1,12 @@
 import { FlatList, StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView, Animated, StatusBar, TextInput, Keyboard } from 'react-native';
 import { Text, View } from '../../components/Themed';
 import Sizes from '../../constants/Sizes';
-import { StarIcon, addCircleIcon, checkIcon, closeIcon, minusCircleIcon } from '../../constants/Icons';
+import { StarIcon, addCircleIcon, checkIcon, closeIcon, minusCircleIcon, tickCircleIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import Gallery from '../../components/common/Gallery';
 import { useRef, useState } from 'react';
 import ReviewCard from '../../components/common/ReviewCard';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import Modal from "react-native-modal";
 
 const demoDetails = {
@@ -21,6 +21,7 @@ const demoDetails = {
 export default function ProductDetailScreen() {
   const scrollX = useRef(new Animated.Value(0)).current;
   const [showAddToCartModal, setShowAddToCartModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [selectedSize, setSelectedSize] = useState(demoDetails.availableSizes[0])
   const [selectedColor, setSelectedColor] = useState(demoDetails.availableColors[0]);
 
@@ -215,8 +216,87 @@ export default function ProductDetailScreen() {
               <Text style={styles.footerPriceTag}>Total Price</Text>
               <Text style={styles.footerPrice}>$235.00</Text>
             </View>
-            <TouchableOpacity style={styles.footerBtn}>
+            <TouchableOpacity style={styles.footerBtn} onPress={() => {
+              setShowAddToCartModal(false)
+              setTimeout(() => {
+                setShowSuccessModal(true);
+              }, 500)
+            }}>
               <Text style={styles.footerBtnText}>ADD TO CART</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
+      {/* Added to Cart Succes Modal */}
+      <Modal
+        isVisible={showSuccessModal}
+        style={{
+          justifyContent: 'flex-end',
+          margin: 0
+        }}
+        swipeDirection="down"
+        avoidKeyboard={true}
+        onBackButtonPress={() => setShowSuccessModal(false)}
+        onDismiss={() => setShowSuccessModal(false)}
+        onBackdropPress={() => setShowSuccessModal(false)}
+        onSwipeComplete={() => setShowSuccessModal(false)}
+      > 
+        <View style={styles.modalContainer}>
+          <View style={styles.modalHandle} />
+          <Image 
+            source={tickCircleIcon} 
+            style={{
+              height: 100,
+              width: 100,
+              objectFit: 'contain',
+              alignSelf: 'center',
+              marginTop: 15,
+              marginBottom: 10
+            }}
+          />
+          <Text 
+            style={[
+              styles.modalTopText,
+              {
+                textAlign: 'center',
+                fontFamily: 'semibold',
+                fontSize: 24
+              }
+            ]}
+          >Add to cart</Text>
+
+          <Text 
+            style={
+              {
+                textAlign: 'center',
+                fontFamily: 'regular',
+                color: '#6F6F6F',
+                marginTop: 5,
+                marginBottom: 15
+              }
+            }
+          >1 Item Total</Text>
+          
+          {/* footer */}
+          <View style={[styles.modalFooter, {gap: 15}]}>
+            <TouchableOpacity 
+              onPress={() => {
+                setShowSuccessModal(false);
+                router.back()
+              }}
+              style={[styles.footerBtn, {borderWidth: 1, borderColor: '#E7E7E7', backgroundColor: '#fff', flex: 1}]}
+            >
+              <Text style={[styles.footerBtnText, {color: Colors.light.text}]}>BACK TO EXPLORE</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              onPress={() => {
+                setShowSuccessModal(false);
+                router.push('/cart')
+              }}
+              style={[styles.footerBtn, {flex: 1}]}
+            >
+              <Text style={styles.footerBtnText}>TO CART</Text>
             </TouchableOpacity>
           </View>
         </View>
