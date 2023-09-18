@@ -1,16 +1,30 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet, Animated } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
 import { addCircleIcon, minusCircleIcon, trashIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import Sizes from '../../constants/Sizes';
 
 const CartItem = () => {
-  const renderRightActions = () => (
-    <TouchableOpacity style={styles.delete} onPress={() => {}}>
-      <Image source={trashIcon} style={styles.deleteIcon} />
-    </TouchableOpacity>
-  );
+  const renderRightActions = (progress, dragX) => {
+    const trans = dragX.interpolate({
+      inputRange: [-100, 0],
+      outputRange: [0, Sizes.width * 0.225],
+      extrapolate: 'clamp',
+    });
+
+    return (
+      <TouchableOpacity onPress={() => {}}>
+        <Animated.View style={[
+            styles.delete,
+            { transform: [{ translateX: trans }], }
+          ]}
+        >
+          <Image source={trashIcon} style={styles.deleteIcon} />
+        </Animated.View>
+      </TouchableOpacity>
+    )
+  };
 
   return (
     <Swipeable renderRightActions={renderRightActions}>
@@ -62,7 +76,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.light.red,
     width: Sizes.width * 0.225,
     borderTopLeftRadius: Sizes.radius,
-    borderBottomLeftRadius: Sizes.radius
+    borderBottomLeftRadius: Sizes.radius,
+    flex: 1
   },
   deleteIcon: {
     width: 24,
