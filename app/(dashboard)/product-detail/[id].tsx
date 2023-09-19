@@ -214,16 +214,14 @@ export default function ProductDetailScreen() {
         {/* Description */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Description</Text>
-          <Text style={styles.description}>Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a pair.</Text>
+          <Text style={styles.description}>{item?.description}</Text>
         </View>
 
         {/* Reviews */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Reviews ({demoDetails.reviews.count})</Text>
+          <Text style={styles.sectionTitle}>Reviews ({numberOfReviews})</Text>
           <View style={styles.reviewsContainer}>
-            <ReviewCard />
-            <ReviewCard />
-            <ReviewCard />
+            {reviews.map((review, i) => <ReviewCard key={i} item={review} />)}
           </View>
           <Link href='/product-review' asChild>
             <TouchableOpacity style={styles.seeReviewsBtn}>

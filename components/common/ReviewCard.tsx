@@ -3,41 +3,46 @@ import React from 'react'
 import Sizes from '../../constants/Sizes'
 import Colors from '../../constants/Colors'
 import { StarIcon } from '../../constants/Icons'
+import TimeAgo from '../../utility/timeAgo'
 
-const ReviewCard = () => {
+interface Prop {
+  item: any
+}
+
+const ReviewCard = ({item}: Prop) => {
   const rating = 5;
 
   return (
     <View style={styles.container}>
       <Image 
         style={styles.avatar}
-        source={require('../../assets/images/user.png')} 
+        source={{uri: item?.picture}} 
       />
       <View style={styles.desc}>
         <View style={styles.top}>
           <Text 
             numberOfLines={1}
             style={styles.name}
-          >Nolan Carder</Text>
-          <Text style={styles.day}>Today</Text>
+          >{item?.name}</Text>
+          <Text style={styles.day}>{TimeAgo(item?.timestamp)}</Text>
         </View>
         <View style={styles.ratingStars}>
           {
-            Array(Math.floor(rating))
+            Array(Math.floor(item?.rating))
               .fill('')
               .map((_, i) => (
                 <Image key={i} source={StarIcon} style={styles.star} />
               ))
           }
           {
-            Array(Math.ceil(5 - rating))
+            Array(Math.ceil(5 - item?.rating))
               .fill('')
               .map((_, i) => (
                 <Image key={i} source={StarIcon} style={[styles.star, {tintColor: Colors.light.inactiveText}]} />
               ))
           }
         </View>
-        <Text style={styles.description}>Perfect for keeping your feet dry and warm in damp conditions.</Text>
+        <Text style={styles.description}>{item?.comment}</Text>
       </View>
     </View>
   )
