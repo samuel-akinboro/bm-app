@@ -5,8 +5,9 @@ import Sizes from '../../constants/Sizes'
 import Colors from '../../constants/Colors'
 import { StarIcon, nikeIcon } from '../../constants/Icons'
 import { Link } from 'expo-router'
+import CurrencyFormatter from '../../utility/currencyFormatter'
 
-const ProductCard = () => {
+const ProductCard = ({item}: any) => {
   return (
     <Link href='/product-detail' style={styles.container}>
       <View>
@@ -17,7 +18,7 @@ const ProductCard = () => {
           />
           <Image 
             style={styles.shoeImage}
-            source={require('../../assets/images/shoe.png')}
+            source={{uri: item?.productImage}}
           />
         </View>
         <View style={styles.description}>
@@ -26,14 +27,14 @@ const ProductCard = () => {
             ellipsizeMode='tail'
             numberOfLines={1}
           >
-            Jordan 1 Retro High Tie Dye
+            {item?.name}
           </Text>
           <View style={styles.ratingBox}>
             <Image source={StarIcon} style={styles.star} />
-            <Text style={styles.rating}>4.5</Text>
-            <Text style={styles.review}>(1045 Reviews)</Text>
+            <Text style={styles.rating}>{item?.rating}</Text>
+            <Text style={styles.review}>({item?.reviews?.count} Reviews)</Text>
           </View>
-          <Text style={styles.price}>$235,00</Text>
+          <Text style={styles.price}>{CurrencyFormatter(item?.price)}</Text>
         </View>
       </View>
     </Link>
@@ -43,7 +44,7 @@ const ProductCard = () => {
 export default ProductCard
 
 const cardWidth = ((Sizes.width - (Sizes.padding * 2)) - 20) / 2;
-const shoeImageHeight = cardWidth * 0.55
+const shoeImageHeight = cardWidth * 0.85
 
 const styles = StyleSheet.create({
   container: {
@@ -55,14 +56,16 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.light.gray,
     padding: 20,
     height: cardWidth,
+    width: cardWidth,
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
   shoeImage: {
     height: shoeImageHeight,
     objectFit: 'contain',
-    // width: shoeImageHeight,
-    // backgroundColor: 'red',
+    width: shoeImageHeight,
+    position: 'absolute',
+    bottom: 0
   },
   brandIcon: {
     position: 'absolute',

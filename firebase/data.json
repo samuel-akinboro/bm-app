@@ -1,0 +1,1095 @@
+[
+  {
+    "id": "e76d1d44-afe9-4e66-b27c-3e72539eb6a1",
+    "brand": "Nike",
+    "description": "Designed for active lifestyles, these shoes are perfect for sports and outdoor activities.",
+    "name": "Nike Air Max 2022",
+    "price": 1200,
+    "gender": "Men",
+    "availableSizes": [39, 39.5, 40, 40.5, 41],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8"
+    ],
+    "availableColors": [
+      {"name": "White", "value": "#fff"},
+      {"name": "Black", "value": "#000"},
+      {"name": "Blue", "value": "#00f"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "e76d1d44-afe9-4e66-b27c-3e72539eb6a2",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "John Doe",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Great shoes! Very comfortable and stylish.",
+          "rating": 4.5
+        },
+        {
+          "id": "e76d1d44-afe9-4e66-b27c-3e72539eb6a3",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Jane Smith",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Good for running.",
+          "rating": 4.0
+        }
+      ]
+    },
+    "rating": 4.3
+  },
+  {
+    "id": "9f3f62bf-0d06-4de1-8690-e9b8b45a1d59",
+    "brand": "Adidas",
+    "description": "Sleek and modern, these shoes offer both style and comfort.",
+    "name": "Adidas Casual Sneaker",
+    "price": 800,
+    "gender": "Women",
+    "availableSizes": [38, 38.5, 39, 39.5, 40],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c"
+    ],
+    "availableColors": [
+      {"name": "White", "value": "#fff"},
+      {"name": "Red", "value": "#f00"},
+      {"name": "Green", "value": "#0f0"}
+    ],
+    "reviews": {
+      "count": 3,
+      "reviews": [
+        {
+          "id": "9f3f62bf-0d06-4de1-8690-e9b8b45a1d60",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Alice Johnson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Stylish and comfortable shoes!",
+          "rating": 4.8
+        },
+        {
+          "id": "9f3f62bf-0d06-4de1-8690-e9b8b45a1d61",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Eva Martinez",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Perfect fit!",
+          "rating": 4.9
+        },
+        {
+          "id": "9f3f62bf-0d06-4de1-8690-e9b8b45a1d62",
+          "timestamp": 1632340800000,
+          "date": "September 23, 2021",
+          "name": "Chris Wilson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Great purchase!",
+          "rating": 4.7
+        }
+      ]
+    },
+    "rating": 4.8
+  },
+  {
+    "id": "d6e6abf9-e199-4e1c-9f09-f1d2c579d3a1",
+    "brand": "Puma",
+    "description": "Classic and comfortable, these Puma sneakers are suitable for everyday wear.",
+    "name": "Puma Classic Sneaker",
+    "price": 950,
+    "gender": "Unisex",
+    "availableSizes": [37, 38, 38.5, 39, 40],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee"
+    ],
+    "availableColors": [
+      {"name": "Black", "value": "#000"},
+      {"name": "Red", "value": "#f00"},
+      {"name": "Green", "value": "#0f0"}
+    ],
+    "reviews": {
+      "count": 3,
+      "reviews": [
+        {
+          "id": "d6e6abf9-e199-4e1c-9f09-f1d2c579d3a2",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Emily Parker",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "High-quality sneakers!",
+          "rating": 4.6
+        },
+        {
+          "id": "d6e6abf9-e199-4e1c-9f09-f1d2c579d3a3",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Alex Turner",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Comfortable and stylish!",
+          "rating": 4.4
+        },
+        {
+          "id": "d6e6abf9-e199-4e1c-9f09-f1d2c579d3a4",
+          "timestamp": 1632340800000,
+          "date": "September 23, 2021",
+          "name": "Sam Harris",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Great for casual wear!",
+          "rating": 4.7
+        }
+      ]
+    },
+    "rating": 4.6
+  },
+  {
+    "id": "f7e27241-0e44-4a4c-82fc-1c2a06f558ec",
+    "brand": "Reebok",
+    "description": "These Reebok running shoes provide excellent support and cushioning for your daily runs.",
+    "name": "Reebok Running Shoes",
+    "price": 1100,
+    "gender": "Men",
+    "availableSizes": [40, 41, 41.5, 42, 42.5],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4"
+    ],
+    "availableColors": [
+      {"name": "Blue", "value": "#00f"},
+      {"name": "Gray", "value": "#808080"},
+      {"name": "Black", "value": "#000"}
+    ],
+    "reviews": {
+      "count": 4,
+      "reviews": [
+        {
+          "id": "f7e27241-0e44-4a4c-82fc-1c2a06f558ed",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "David Lee",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Excellent running shoes!",
+          "rating": 4.9
+        },
+        {
+          "id": "f7e27241-0e44-4a4c-82fc-1c2a06f558ee",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Laura Adams",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Great support and comfort!",
+          "rating": 4.8
+        },
+        {
+          "id": "f7e27241-0e44-4a4c-82fc-1c2a06f558ef",
+          "timestamp": 1632340800000,
+          "date": "September 23, 2021",
+          "name": "Mark Johnson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Perfect for my runs!",
+          "rating": 4.7
+        },
+        {
+          "id": "f7e27241-0e44-4a4c-82fc-1c2a06f558f0",
+          "timestamp": 1632427200000,
+          "date": "September 24, 2021",
+          "name": "Sophia Brown",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Best running shoes ever!",
+          "rating": 5.0
+        }
+      ]
+    },
+    "rating": 4.8
+  },
+  {
+    "id": "ed508a94-c3e9-4c95-b558-b75c15fcb6d9",
+    "brand": "Jordan",
+    "description": "These Jordan basketball shoes are designed for superior performance on the court.",
+    "name": "Jordan Air Slam Dunk",
+    "price": 1500,
+    "gender": "Men",
+    "availableSizes": [42, 42.5, 43, 43.5, 44],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845"
+    ],
+    "availableColors": [
+      {"name": "Red", "value": "#f00"},
+      {"name": "Black", "value": "#000"},
+      {"name": "White", "value": "#fff"}
+    ],
+    "reviews": {
+      "count": 3,
+      "reviews": [
+        {
+          "id": "ed508a94-c3e9-4c95-b558-b75c15fcb6da",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Michael Jordan",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Awesome basketball shoes!",
+          "rating": 4.9
+        },
+        {
+          "id": "ed508a94-c3e9-4c95-b558-b75c15fcb6db",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "LeBron James",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Great for dunking!",
+          "rating": 4.8
+        },
+        {
+          "id": "ed508a94-c3e9-4c95-b558-b75c15fcb6dc",
+          "timestamp": 1632340800000,
+          "date": "September 23, 2021",
+          "name": "Kobe Bryant",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "The best Jordan shoes!",
+          "rating": 5.0
+        }
+      ]
+    },
+    "rating": 4.9
+  },
+  {
+    "id": "adfe3c6c-7d27-4ea2-97d3-9074da4f22b5",
+    "brand": "Reebok",
+    "description": "Experience comfort and style with these Reebok sneakers for women.",
+    "name": "Reebok Women's Sneakers",
+    "price": 900,
+    "gender": "Women",
+    "availableSizes": [37, 38, 38.5, 39, 40],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe6.png?alt=media&token=93e34e7e-2efb-414a-84a9-5eb8efceee97",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe6.png?alt=media&token=93e34e7e-2efb-414a-84a9-5eb8efceee97",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe6.png?alt=media&token=93e34e7e-2efb-414a-84a9-5eb8efceee97",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe6.png?alt=media&token=93e34e7e-2efb-414a-84a9-5eb8efceee97"
+    ],
+    "availableColors": [
+      {"name": "Blue", "value": "#00f"},
+      {"name": "Red", "value": "#f00"},
+      {"name": "Black", "value": "#000"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "adfe3c6c-7d27-4ea2-97d3-9074da4f22b6",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Sarah Anderson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Very comfortable shoes!",
+          "rating": 4.6
+        },
+        {
+          "id": "adfe3c6c-7d27-4ea2-97d3-9074da4f22b7",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Megan Clark",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Love the design!",
+          "rating": 4.4
+        }
+      ]
+    },
+    "rating": 4.5
+  },
+  {
+    "id": "88e372a6-680e-4e96-a9ae-8dd06daaf325",
+    "brand": "Adidas",
+    "description": "Adidas running shoes with advanced cushioning technology for ultimate comfort.",
+    "name": "Adidas Comfort Runner",
+    "price": 1200,
+    "gender": "Men",
+    "availableSizes": [42, 42.5, 43, 43.5, 44],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe1.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe1.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe1.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe1.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8"
+    ],
+    "availableColors": [
+      {"name": "Blue", "value": "#00f"},
+      {"name": "Gray", "value": "#808080"},
+      {"name": "Black", "value": "#000"}
+    ],
+    "reviews": {
+      "count": 3,
+      "reviews": [
+        {
+          "id": "88e372a6-680e-4e96-a9ae-8dd06daaf326",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "John Smith",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Superb running shoes!",
+          "rating": 4.8
+        },
+        {
+          "id": "88e372a6-680e-4e96-a9ae-8dd06daaf327",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Sarah Davis",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Great for long runs!",
+          "rating": 4.9
+        },
+        {
+          "id": "88e372a6-680e-4e96-a9ae-8dd06daaf328",
+          "timestamp": 1632340800000,
+          "date": "September 23, 2021",
+          "name": "Chris Miller",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Perfect fit and style!",
+          "rating": 4.7
+        }
+      ]
+    },
+    "rating": 4.8
+  },
+  {
+    "id": "b33aa40d-3207-4f79-b11b-1ac226a88945",
+    "brand": "Nike",
+    "description": "Nike Air Max sneakers with iconic style and unbeatable comfort.",
+    "name": "Nike Air Max Classic",
+    "price": 1400,
+    "gender": "Men",
+    "availableSizes": [41, 41.5, 42, 42.5, 43],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c"
+    ],
+    "availableColors": [
+      {"name": "White", "value": "#fff"},
+      {"name": "Red", "value": "#f00"},
+      {"name": "Green", "value": "#0f0"}
+    ],
+    "reviews": {
+      "count": 4,
+      "reviews": [
+        {
+          "id": "b33aa40d-3207-4f79-b11b-1ac226a88946",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "James Johnson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Incredible comfort and style!",
+          "rating": 4.9
+        },
+        {
+          "id": "b33aa40d-3207-4f79-b11b-1ac226a88947",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Olivia White",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Must-have sneakers!",
+          "rating": 4.8
+        },
+        {
+          "id": "b33aa40d-3207-4f79-b11b-1ac226a88948",
+          "timestamp": 1632340800000,
+          "date": "September 23, 2021",
+          "name": "Daniel Smith",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Perfect for everyday wear!",
+          "rating": 4.7
+        },
+        {
+          "id": "b33aa40d-3207-4f79-b11b-1ac226a88949",
+          "timestamp": 1632427200000,
+          "date": "September 24, 2021",
+          "name": "Sophia Brown",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Best Nike sneakers!",
+          "rating": 5.0
+        }
+      ]
+    },
+    "rating": 4.8
+  },
+  {
+    "id": "e02b5054-ee1b-46b2-9cc5-2df66d853c7b",
+    "brand": "Puma",
+    "description": "Puma running shoes for women with a sleek and modern design.",
+    "name": "Puma Women's Running Shoes",
+    "price": 1100,
+    "gender": "Women",
+    "availableSizes": [36, 36.5, 37, 37.5, 38],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee"
+    ],
+    "availableColors": [
+      {"name": "Blue", "value": "#00f"},
+      {"name": "Black", "value": "#000"},
+      {"name": "White", "value": "#fff"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "e02b5054-ee1b-46b2-9cc5-2df66d853c7c",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Emma Wilson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Comfortable and stylish!",
+          "rating": 4.5
+        },
+        {
+          "id": "e02b5054-ee1b-46b2-9cc5-2df66d853c7d",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Olivia Adams",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Love these shoes!",
+          "rating": 4.7
+        }
+      ]
+    },
+    "rating": 4.6
+  },
+  {
+    "id": "c0e385a5-8e7d-4f3b-94d5-68e14d2e1a24",
+    "brand": "Jordan",
+    "description": "Jordan basketball shoes with excellent grip and support for serious players.",
+    "name": "Jordan Slam Dunk Pro",
+    "price": 1600,
+    "gender": "Men",
+    "availableSizes": [44, 44.5, 45, 45.5, 46],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4"
+    ],
+    "availableColors": [
+      {"name": "Red", "value": "#f00"},
+      {"name": "Black", "value": "#000"},
+      {"name": "White", "value": "#fff"}
+    ],
+    "reviews": {
+      "count": 3,
+      "reviews": [
+        {
+          "id": "c0e385a5-8e7d-4f3b-94d5-68e14d2e1a25",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "David Johnson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Perfect for dunking!",
+          "rating": 4.9
+        },
+        {
+          "id": "c0e385a5-8e7d-4f3b-94d5-68e14d2e1a26",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Sarah Miller",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Great basketball shoes!",
+          "rating": 4.8
+        },
+        {
+          "id": "c0e385a5-8e7d-4f3b-94d5-68e14d2e1a27",
+          "timestamp": 1632340800000,
+          "date": "September 23, 2021",
+          "name": "Emily Davis",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Best Jordan shoes ever!",
+          "rating": 5.0
+        }
+      ]
+    },
+    "rating": 4.9
+  },
+  {
+    "id": "f821132e-8303-44fc-80e6-109850d550da",
+    "brand": "Puma",
+    "description": "Puma sneakers with a classic design for everyday wear.",
+    "name": "Puma Classic Sneakers",
+    "price": 800,
+    "gender": "Unisex",
+    "availableSizes": [38, 38.5, 39, 39.5, 40],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845"
+    ],
+    "availableColors": [
+      {"name": "Blue", "value": "#00f"},
+      {"name": "White", "value": "#fff"},
+      {"name": "Black", "value": "#000"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "f821132e-8303-44fc-80e6-109850d550db",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Alex Wilson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Comfortable and stylish!",
+          "rating": 4.5
+        },
+        {
+          "id": "f821132e-8303-44fc-80e6-109850d550dc",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Ella Johnson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Love these sneakers!",
+          "rating": 4.7
+        }
+      ]
+    },
+    "rating": 4.6
+  },
+  {
+    "id": "05f5235f-25b0-4f08-bc63-c4f0788f8e9a",
+    "brand": "Reebok",
+    "description": "Reebok classic sneakers with a timeless design for everyday style.",
+    "name": "Reebok Classic Heritage",
+    "price": 900,
+    "gender": "Unisex",
+    "availableSizes": [38, 38.5, 39, 39.5, 40],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe6.png?alt=media&token=93e34e7e-2efb-414a-84a9-5eb8efceee97",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe6.png?alt=media&token=93e34e7e-2efb-414a-84a9-5eb8efceee97",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe6.png?alt=media&token=93e34e7e-2efb-414a-84a9-5eb8efceee97",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe6.png?alt=media&token=93e34e7e-2efb-414a-84a9-5eb8efceee97"
+    ],
+    "availableColors": [
+      {"name": "Black", "value": "#000"},
+      {"name": "White", "value": "#fff"},
+      {"name": "Red", "value": "#f00"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "05f5235f-25b0-4f08-bc63-c4f0788f8e9b",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Michael Johnson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Classic and comfortable!",
+          "rating": 4.6
+        },
+        {
+          "id": "05f5235f-25b0-4f08-bc63-c4f0788f8e9c",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Jessica White",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Great shoes for any outfit!",
+          "rating": 4.7
+        }
+      ]
+    },
+    "rating": 4.65
+  },
+  {
+    "id": "53a7e7ca-87c1-4f01-89a1-8851c5c83f7d",
+    "brand": "Adidas",
+    "description": "Adidas women's sneakers with a modern and sporty look.",
+    "name": "Adidas Sporty Boost",
+    "price": 950,
+    "gender": "Women",
+    "availableSizes": [36, 36.5, 37, 37.5, 38],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845"
+    ],
+    "availableColors": [
+      {"name": "Blue", "value": "#00f"},
+      {"name": "White", "value": "#fff"},
+      {"name": "Black", "value": "#000"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "53a7e7ca-87c1-4f01-89a1-8851c5c83f7e",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Sophie Wilson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Super comfortable and stylish!",
+          "rating": 4.8
+        },
+        {
+          "id": "53a7e7ca-87c1-4f01-89a1-8851c5c83f7f",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Liam White",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Love these sneakers!",
+          "rating": 4.7
+        }
+      ]
+    },
+    "rating": 4.75
+  },
+  {
+    "id": "79c3e9f9-cf5f-4d28-a30e-8db40b1864bb",
+    "brand": "Nike",
+    "description": "Nike running shoes with advanced cushioning for maximum comfort.",
+    "name": "Nike Air Max Cushion",
+    "price": 1300,
+    "gender": "Men",
+    "availableSizes": [42, 42.5, 43, 43.5, 44],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe1.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe1.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe1.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe1.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8"
+    ],
+    "availableColors": [
+      {"name": "Black", "value": "#000"},
+      {"name": "Red", "value": "#f00"},
+      {"name": "White", "value": "#fff"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "79c3e9f9-cf5f-4d28-a30e-8db40b1864bc",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "David Wilson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Great shoes for running!",
+          "rating": 4.7
+        },
+        {
+          "id": "79c3e9f9-cf5f-4d28-a30e-8db40b1864bd",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Sophie White",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Excellent cushioning!",
+          "rating": 4.8
+        }
+      ]
+    },
+    "rating": 4.75
+  },
+  {
+    "id": "db24f1e6-8630-45a0-9324-9d61bba6b0d9",
+    "brand": "Adidas",
+    "description": "Adidas men's sneakers with a sleek and modern design for casual wear.",
+    "name": "Adidas Urban Style",
+    "price": 950,
+    "gender": "Men",
+    "availableSizes": [41, 41.5, 42, 42.5, 43],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c"
+    ],
+    "availableColors": [
+      {"name": "Black", "value": "#000"},
+      {"name": "White", "value": "#fff"},
+      {"name": "Blue", "value": "#00f"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "db24f1e6-8630-45a0-9324-9d61bba6b0da",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Michael White",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Sleek and stylish!",
+          "rating": 4.7
+        },
+        {
+          "id": "db24f1e6-8630-45a0-9324-9d61bba6b0db",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Olivia White",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Comfortable and trendy!",
+          "rating": 4.8
+        }
+      ]
+    },
+    "rating": 4.75
+  },
+  {
+    "id": "8d6b8ab0-f67c-4e86-bb47-d7232cc48f47",
+    "brand": "Puma",
+    "description": "Puma athletic sneakers designed for maximum performance and style.",
+    "name": "Puma Performance Runner",
+    "price": 1200,
+    "gender": "Men",
+    "availableSizes": [42, 42.5, 43, 43.5, 44],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee"
+    ],
+    "availableColors": [
+      {"name": "Black", "value": "#000"},
+      {"name": "Red", "value": "#f00"},
+      {"name": "Blue", "value": "#00f"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "8d6b8ab0-f67c-4e86-bb47-d7232cc48f48",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "John Smith",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Great for running!",
+          "rating": 4.7
+        },
+        {
+          "id": "8d6b8ab0-f67c-4e86-bb47-d7232cc48f49",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Emily White",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Comfortable and stylish!",
+          "rating": 4.8
+        }
+      ]
+    },
+    "rating": 4.75
+  },
+  {
+    "id": "be2b0141-d1ab-43f7-8d45-15a99b94d9d4",
+    "brand": "Jordan",
+    "description": "Jordan high-top sneakers inspired by basketball legends.",
+    "name": "Jordan Legacy B-Ball",
+    "price": 1600,
+    "gender": "Men",
+    "availableSizes": [41, 41.5, 42, 42.5, 43],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4"
+    ],
+    "availableColors": [
+      {"name": "Black", "value": "#000"},
+      {"name": "Red", "value": "#f00"},
+      {"name": "Blue", "value": "#00f"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "be2b0141-d1ab-43f7-8d45-15a99b94d9d5",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Chris White",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Iconic design!",
+          "rating": 4.7
+        },
+        {
+          "id": "be2b0141-d1ab-43f7-8d45-15a99b94d9d6",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Laura White",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Best basketball shoes!",
+          "rating": 4.8
+        }
+      ]
+    },
+    "rating": 4.75
+  },
+  {
+    "id": "47ea6817-6b05-4b1a-8a0d-af2cf261d4d9",
+    "brand": "Adidas",
+    "description": "Adidas women's sneakers with a fashionable and sporty design.",
+    "name": "Adidas Sportswear",
+    "price": 900,
+    "gender": "Women",
+    "availableSizes": [37, 37.5, 38, 38.5, 39],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe6.png?alt=media&token=93e34e7e-2efb-414a-84a9-5eb8efceee97",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe6.png?alt=media&token=93e34e7e-2efb-414a-84a9-5eb8efceee97",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe6.png?alt=media&token=93e34e7e-2efb-414a-84a9-5eb8efceee97",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe6.png?alt=media&token=93e34e7e-2efb-414a-84a9-5eb8efceee97"
+    ],
+    "availableColors": [
+      {"name": "Black", "value": "#000"},
+      {"name": "White", "value": "#fff"},
+      {"name": "Blue", "value": "#00f"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "47ea6817-6b05-4b1a-8a0d-af2cf261d4da",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Sophia Davis",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Stylish and comfortable!",
+          "rating": 4.7
+        },
+        {
+          "id": "47ea6817-6b05-4b1a-8a0d-af2cf261d4db",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Oliver Smith",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Great fit and quality!",
+          "rating": 4.8
+        }
+      ]
+    },
+    "rating": 4.75
+  },
+  {
+    "id": "b6d2495f-55f2-4f59-9e44-5660e3fcf94d",
+    "brand": "Jordan",
+    "description": "Jordan women's sneakers with a bold and unique design.",
+    "name": "Jordan Bold Style",
+    "price": 1100,
+    "gender": "Women",
+    "availableSizes": [37, 37.5, 38, 38.5, 39],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe5.png?alt=media&token=aafbc588-7326-4bd9-aea8-1e0ccca8b845"
+    ],
+    "availableColors": [
+      {"name": "Black", "value": "#000"},
+      {"name": "Red", "value": "#f00"},
+      {"name": "Blue", "value": "#00f"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "b6d2495f-55f2-4f59-9e44-5660e3fcf94e",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Emma Johnson",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Unique design, love it!",
+          "rating": 4.7
+        },
+        {
+          "id": "b6d2495f-55f2-4f59-9e44-5660e3fcf94f",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Ethan Davis",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Comfortable and stylish!",
+          "rating": 4.8
+        }
+      ]
+    },
+    "rating": 4.75
+  },
+  {
+    "id": "a6a429ce-61cb-4e2d-89d5-7d6760a6e11f",
+    "brand": "Nike",
+    "description": "Nike women's running shoes with advanced cushioning technology.",
+    "name": "Nike Air Zoom",
+    "price": 1400,
+    "gender": "Women",
+    "availableSizes": [36, 36.5, 37, 37.5, 38],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe1.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe1.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe1.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe1.png?alt=media&token=c4900c2a-9038-4ea3-8592-2fa561c3d8e8"
+    ],
+    "availableColors": [
+      {"name": "Black", "value": "#000"},
+      {"name": "White", "value": "#fff"},
+      {"name": "Blue", "value": "#00f"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "a6a429ce-61cb-4e2d-89d5-7d6760a6e120",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Ava Smith",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Perfect for running!",
+          "rating": 4.7
+        },
+        {
+          "id": "a6a429ce-61cb-4e2d-89d5-7d6760a6e121",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Olivia Davis",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Amazing comfort and style!",
+          "rating": 4.8
+        }
+      ]
+    },
+    "rating": 4.75
+  },
+  {
+    "id": "d21635e9-9c17-4781-a18c-477b94e1d5e2",
+    "brand": "Adidas",
+    "description": "Adidas men's sneakers with a sleek and modern design.",
+    "name": "Adidas Urban Style",
+    "price": 1100,
+    "gender": "Men",
+    "availableSizes": [41, 41.5, 42, 42.5, 43],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe2.png?alt=media&token=117c8a9d-e3d5-4615-b209-b23c65fde99c"
+    ],
+    "availableColors": [
+      {"name": "Black", "value": "#000"},
+      {"name": "White", "value": "#fff"},
+      {"name": "Red", "value": "#f00"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "d21635e9-9c17-4781-a18c-477b94e1d5e3",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "James Smith",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Sleek and comfortable!",
+          "rating": 4.7
+        },
+        {
+          "id": "d21635e9-9c17-4781-a18c-477b94e1d5e4",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Lily Davis",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Modern and stylish!",
+          "rating": 4.8
+        }
+      ]
+    },
+    "rating": 4.75
+  },
+  {
+    "id": "e26c1a5f-8993-4e8d-836a-68f5865e85aa",
+    "brand": "Puma",
+    "description": "Puma men's sneakers with a classic and comfortable design.",
+    "name": "Puma Classic Comfort",
+    "price": 1050,
+    "gender": "Men",
+    "availableSizes": [41, 41.5, 42, 42.5, 43],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe3.png?alt=media&token=21e0dc8e-9acf-4629-b705-5a295bbbd4ee"
+    ],
+    "availableColors": [
+      {"name": "Black", "value": "#000"},
+      {"name": "White", "value": "#fff"},
+      {"name": "Blue", "value": "#00f"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "e26c1a5f-8993-4e8d-836a-68f5865e85ab",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Elijah Davis",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Classic and comfortable!",
+          "rating": 4.7
+        },
+        {
+          "id": "e26c1a5f-8993-4e8d-836a-68f5865e85ac",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Aria Davis",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Comfortable and stylish!",
+          "rating": 4.8
+        }
+      ]
+    },
+    "rating": 4.75
+  },
+  {
+    "id": "57c0629f-55e1-4e61-9e4d-eb4da5733b0c",
+    "brand": "Nike",
+    "description": "Nike women's sneakers with a trendy and sporty design.",
+    "name": "Nike Sporty Style",
+    "price": 1200,
+    "gender": "Women",
+    "availableSizes": [36, 36.5, 37, 37.5, 38],
+    "productImage": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4",
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4",
+      "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/shoe4.png?alt=media&token=529e57e0-648f-48da-a450-539092cba3f4"
+    ],
+    "availableColors": [
+      {"name": "Black", "value": "#000"},
+      {"name": "White", "value": "#fff"},
+      {"name": "Red", "value": "#f00"}
+    ],
+    "reviews": {
+      "count": 2,
+      "reviews": [
+        {
+          "id": "57c0629f-55e1-4e61-9e4d-eb4da5733b0d",
+          "timestamp": 1632168000000,
+          "date": "September 21, 2021",
+          "name": "Isabella Davis",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Trendy and comfortable!",
+          "rating": 4.7
+        },
+        {
+          "id": "57c0629f-55e1-4e61-9e4d-eb4da5733b0e",
+          "timestamp": 1632254400000,
+          "date": "September 22, 2021",
+          "name": "Mason Davis",
+          "picture": "https://firebasestorage.googleapis.com/v0/b/shoesly-a992b.appspot.com/o/user.png?alt=media&token=90eefb16-3ba5-40f7-b82f-4031304e717d",
+          "comment": "Perfect for sports activities!",
+          "rating": 4.8
+        }
+      ]
+    },
+    "rating": 4.75
+  }
+]

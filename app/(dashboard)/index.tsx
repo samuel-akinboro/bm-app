@@ -7,8 +7,41 @@ import ProductCard from '../../components/home/ProductCard';
 import { filterWhiteIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import { Link } from 'expo-router';
+import { database } from '../../firebase/firebase'
+import { getDatabase, ref, orderByKey, limitToFirst, DataSnapshot, get, query } from 'firebase/database';
+import { useEffect, useState } from 'react';
+
+const INITIAL_BATCH_SIZE = 10;
 
 export default function HomeScreen() {
+  const [data, setData] = useState<any>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true)
+      try {
+        const initialData:any = [];
+        const dataRef = ref(database, '/');
+        const snapshot = await get(
+          query(dataRef, orderByKey(), limitToFirst(INITIAL_BATCH_SIZE))
+        );
+
+        snapshot.forEach((childSnapshot: DataSnapshot) => {
+          initialData.push(childSnapshot.val());
+        });
+        console.log(initialData)
+        setData(initialData);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false)
+        console.error('Error fetching initial data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle='dark-content' />
@@ -19,10 +52,11 @@ export default function HomeScreen() {
       />
       <FlatList
         style={styles.productList}
-        data={Array(10).fill('')}
+        data={data}
         numColumns={2}
+        keyExtractor={(item) => item?.id}
         columnWrapperStyle={{justifyContent: 'space-between'}}
-        renderItem={({item}) => <ProductCard />}
+        renderItem={({item}) => <ProductCard item={item} />}
         ListFooterComponent={<View style={{height: 80}} />}
       />
       <Link href='/filter' asChild>

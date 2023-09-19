@@ -70,11 +70,13 @@ export default function FilterScreen() {
         {/* Color */}
         <View style={styles.sectionNoPadding}>
           <Text style={styles.sectionNoPaddingTitle}>Color</Text>
-          <FilterByColor data={[
-            {value: '#FF4C5E', name: 'Red'},
-            {value: '#101010', name: 'Black'},
-            {value: '#FFF', name: 'White'}
-          ]} />
+          <FilterByColor 
+            data={[
+              {value: '#FF4C5E', name: 'Red'},
+              {value: '#101010', name: 'Black'},
+              {value: '#FFF', name: 'White'}
+            ]} 
+          />
         </View>
 
         {/* spacing */}
