@@ -30,8 +30,8 @@ export default function HomeScreen() {
         snapshot.forEach((childSnapshot: DataSnapshot) => {
           initialData.push(childSnapshot.val());
         });
-        console.log(initialData)
-        setData(initialData);
+        
+        setData(initialData.map((data, i) => ({firebaseId: i, ...data})));
         setLoading(false);
       } catch (error) {
         setLoading(false)

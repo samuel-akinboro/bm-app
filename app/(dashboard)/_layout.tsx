@@ -15,7 +15,7 @@ export default function RootLayout() {
         options={{ headerShown: false }} 
       />
       <Stack.Screen 
-        name="product-detail" 
+        name="product-detail/[id]" 
         options={{
           headerTitle: '',
           headerLeft: () => (

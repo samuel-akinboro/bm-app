@@ -1,13 +1,16 @@
 import { FlatList, StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView, Animated, StatusBar, TextInput, Keyboard } from 'react-native';
-import { Text, View } from '../../components/Themed';
-import Sizes from '../../constants/Sizes';
-import { StarIcon, addCircleIcon, checkIcon, closeIcon, minusCircleIcon, tickCircleIcon } from '../../constants/Icons';
-import Colors from '../../constants/Colors';
-import Gallery from '../../components/common/Gallery';
-import { useRef, useState } from 'react';
-import ReviewCard from '../../components/common/ReviewCard';
+import { Text, View } from '../../../components/Themed';
+import Sizes from '../../../constants/Sizes';
+import { StarIcon, addCircleIcon, checkIcon, closeIcon, minusCircleIcon, tickCircleIcon } from '../../../constants/Icons';
+import Colors from '../../../constants/Colors';
+import Gallery from '../../../components/common/Gallery';
+import { useEffect, useRef, useState } from 'react';
+import ReviewCard from '../../../components/common/ReviewCard';
 import { Link, router } from 'expo-router';
 import Modal from "react-native-modal";
+import { useLocalSearchParams } from 'expo-router';
+import { database } from '../../../firebase/firebase'
+import { ref, child, get, query, orderByChild, limitToFirst } from 'firebase/database';
 
 const demoDetails = {
   ratings: 3.5,
@@ -19,11 +22,74 @@ const demoDetails = {
 }
 
 export default function ProductDetailScreen() {
+  const item = useLocalSearchParams();
   const scrollX = useRef(new Animated.Value(0)).current;
   const [showAddToCartModal, setShowAddToCartModal] = useState(false);
+  const [availableColors, setAvailableColors] = useState([]);
+  const [numberOfReviews, setNumberOfReviews] = useState(0);
+  const [reviews, setReviews] = useState([]);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [selectedSize, setSelectedSize] = useState(demoDetails.availableSizes[0])
+  const [selectedSize, setSelectedSize] = useState(item?.availableSizes[0])
   const [selectedColor, setSelectedColor] = useState(demoDetails.availableColors[0]);
+
+  async function fetchAvailableColors(itemId) {
+    const itemRef = ref(database, `/${itemId}/availableColors`);
+    
+    try {
+      const snapshot = await get(itemRef);
+      if (snapshot.exists()) {
+        // Convert the snapshot into an array
+        const availableColors = [];
+        snapshot.forEach((childSnapshot) => {
+          availableColors.push(childSnapshot.val());
+        });
+        return availableColors;
+      } else {
+        console.log("No data available for the item");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching available colors:", error);
+      return null;
+    }
+  }
+
+  async function fetchReviews(itemId) {
+    const reviewCountRef = ref(database, `/${itemId}/reviews/count`);
+    const reviewsRef = ref(database, `/${itemId}/reviews/reviews`);
+    const reviewsQuery = query(reviewsRef, orderByChild('rating'), limitToFirst(3));
+    
+    try {
+      const snapshot = await get(reviewCountRef);
+      const snapshot2 = await get(reviewsQuery);
+      if (snapshot.exists() && snapshot2.exists()) {
+        const reviewCount = snapshot.val();
+        const reviews = [];
+        snapshot2.forEach((childSnapshot) => {
+          reviews.push(childSnapshot.val());
+        });
+
+        setNumberOfReviews(reviewCount)
+        setReviews(reviews)
+        
+      } else {
+        console.log("No data available for the item");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching reviews:", error);
+      return null;
+    }
+  }
+
+  useEffect(() => {
+    fetchAvailableColors(item.firebaseId).then((colors) => {
+      if (colors) {
+        setAvailableColors(colors)
+      }
+    });
+    fetchReviews(item.firebaseId)
+  }, [])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -34,14 +100,14 @@ export default function ProductDetailScreen() {
         <View style={styles.carousel}>
           <FlatList
             style={styles.flatlist}
-            data={['', '', '']}
+            data={item?.gallery?.split(',')}
             horizontal
             showsHorizontalScrollIndicator={false}
             pagingEnabled
             scrollEventThrottle={16}
             bounces={false}
-            renderItem={({item}) => (
-              <Gallery />
+            renderItem={({item, index}) => (
+              <Gallery uri={item} key={index} />
             )}
             onScroll={Animated.event(
               [{ nativeEvent: { contentOffset: { x: scrollX } } }],
@@ -73,9 +139,26 @@ export default function ProductDetailScreen() {
             
             {/* change shoe color */}
             <View style={styles.widget}>
-              {demoDetails.availableColors.map((color, i) => (
-                <TouchableOpacity key={i} style={[styles.pickColor, {backgroundColor: color}]} onPress={() => setSelectedColor(color)}>
-                  {selectedColor === color && <Image source={checkIcon} style={{width: '50%', height: '50%', objectFit: 'contain', tintColor: color === '#fff' ? Colors.light.text : '#fff'}} />}
+              {availableColors.map((color, i) => (
+                <TouchableOpacity 
+                  key={i} 
+                  style={[
+                    styles.pickColor, 
+                    {backgroundColor: color?.value}
+                  ]} 
+                  onPress={() => setSelectedColor(color)}
+                >
+                  {selectedColor === color && (
+                    <Image 
+                      source={checkIcon} 
+                      style={{
+                        width: '50%', 
+                        height: '50%', 
+                        objectFit: 'contain', 
+                        tintColor: color?.name?.toLowerCase() === 'white' ? Colors.light.text : '#fff'
+                      }} 
+                    />
+                  )}
                 </TouchableOpacity>
               ))}
             </View>
@@ -91,27 +174,27 @@ export default function ProductDetailScreen() {
               ellipsizeMode='tail'
               numberOfLines={1}
             >
-              Jordan 1 Retro High Tie Dye
+              {item?.name}
             </Text>
             <View style={styles.ratingBox}>
               <View style={styles.ratingStars}>
                 {
-                  Array(Math.floor(demoDetails.ratings))
+                  Array(Math.floor(item?.rating))
                     .fill('')
                     .map((_, i) => (
                       <Image source={StarIcon} style={styles.star} key={i} />
                     ))
                 }
                 {
-                  Array(Math.ceil(5 - demoDetails.ratings))
+                  Array(Math.ceil(5 - item?.rating))
                     .fill('')
                     .map((_, i) => (
                       <Image key={i} source={StarIcon} style={[styles.star, {tintColor: Colors.light.inactiveText}]} />
                     ))
                 }
               </View>
-              <Text style={styles.rating}>{demoDetails.ratings}</Text>
-              <Text style={styles.review}>({demoDetails.reviews.count} Reviews)</Text>
+              <Text style={styles.rating}>{item?.rating}</Text>
+              <Text style={styles.review}>({numberOfReviews} Reviews)</Text>
             </View>
           </View>
         </View>

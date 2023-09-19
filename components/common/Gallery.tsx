@@ -2,11 +2,15 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import Sizes from '../../constants/Sizes'
 import Colors from '../../constants/Colors'
 
-const Gallery = () => {
+interface Prop {
+  uri: string;
+}
+
+const Gallery = ({uri}: Prop) => {
   return (
     <View style={styles.container}>
       <Image 
-        source={require('../../assets/images/shoe.png')}
+        source={{uri}}
         style={styles.image}
       />
     </View>

@@ -9,7 +9,13 @@ import CurrencyFormatter from '../../utility/currencyFormatter'
 
 const ProductCard = ({item}: any) => {
   return (
-    <Link href='/product-detail' style={styles.container}>
+    <Link 
+      href={{
+        pathname: `/(dashboard)/product-detail/${item?.id}`,
+        params: item
+      }} 
+      style={styles.container}
+    >
       <View>
         <View style={styles.imageContainer}>
           <Image 
