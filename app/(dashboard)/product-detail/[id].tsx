@@ -11,6 +11,7 @@ import Modal from "react-native-modal";
 import { useLocalSearchParams } from 'expo-router';
 import { database } from '../../../firebase/firebase'
 import { ref, child, get, query, orderByChild, limitToFirst } from 'firebase/database';
+import CurrencyFormatter from '../../../utility/currencyFormatter';
 
 const demoDetails = {
   ratings: 3.5,
@@ -236,7 +237,7 @@ export default function ProductDetailScreen() {
       <View style={styles.footer}>
         <View style={styles.footerLeft}>
           <Text style={styles.footerPriceTag}>Price</Text>
-          <Text style={styles.footerPrice}>$235.00</Text>
+          <Text style={styles.footerPrice}>{CurrencyFormatter(item?.price)}</Text>
         </View>
         <TouchableOpacity 
           style={styles.footerBtn}
