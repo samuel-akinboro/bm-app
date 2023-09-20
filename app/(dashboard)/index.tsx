@@ -15,6 +15,7 @@ const INITIAL_BATCH_SIZE = 10;
 
 export default function HomeScreen() {
   const [data, setData] = useState<any>([]);
+  const [brand, setBrand] = useState('all');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -49,6 +50,8 @@ export default function HomeScreen() {
       <Categories 
         data={['All', 'Nike', 'Jordan', 'Adidas', 'Reebok', 'Vans', 'Puma', '']}
         style={{marginTop: 15}} 
+        selected={brand}
+        setSelected={setBrand}
       />
       <FlatList
         style={styles.productList}
