@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 import { store } from '../providers'
 import { Provider as StoreProvider } from 'react-redux'
+import Toast from 'react-native-toast-message';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -56,6 +57,7 @@ function RootLayoutNav() {
         <Stack.Screen name="(dashboard)" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
+    <Toast />
     </StoreProvider>
   );
 }

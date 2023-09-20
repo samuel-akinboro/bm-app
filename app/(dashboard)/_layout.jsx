@@ -5,7 +5,6 @@ import Colors from '../../constants/Colors';
 import { Text, View } from '../../components/Themed';
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
   const navigation = useNavigation();
 
   return (

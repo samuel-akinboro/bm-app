@@ -7,12 +7,24 @@ import Sizes from '../../constants/Sizes';
 import CurrencyFormatter from '../../utility/currencyFormatter';
 import { incrementDecrementItem, removeItem } from '../../providers/cart';
 import { useDispatch } from 'react-redux';
+import Toast from 'react-native-toast-message';
 
 const CartItem = ({item, index}) => {
   const dispatch = useDispatch();
 
+  const showToast = () => {
+    Toast.show({
+      type: 'success',
+      text1: 'Success',
+      position: 'top',
+      text2: 'Item removed',
+      topOffset: Sizes.height * 0.10
+    });
+  }
+
   const deleteItem = () => {
     dispatch(removeItem({index}))
+    showToast()
   }
 
   const renderRightActions = (_, dragX) => {

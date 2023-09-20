@@ -10,19 +10,10 @@ import { Link, router } from 'expo-router';
 import Modal from "react-native-modal";
 import { useLocalSearchParams } from 'expo-router';
 import { database } from '../../../firebase/firebase'
-import { ref, child, get, query, orderByChild, limitToFirst, limitToLast } from 'firebase/database';
+import { ref, get, query, orderByChild, limitToLast } from 'firebase/database';
 import CurrencyFormatter from '../../../utility/currencyFormatter';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../../providers/cart'
-
-const demoDetails = {
-  ratings: 3.5,
-  reviews: {
-    count: 1023
-  },
-  availableSizes: ["39", "39.5", "40", "40.5", "41"],
-  availableColors: ["#fff", "#101010", "#638b8b", "#2952cc"]
-}
 
 export default function ProductDetailScreen() {
   const dispatch = useDispatch();
@@ -35,7 +26,7 @@ export default function ProductDetailScreen() {
   const [reviews, setReviews] = useState([]);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [selectedSize, setSelectedSize] = useState(item?.availableSizes[0])
-  const [selectedColor, setSelectedColor] = useState(demoDetails.availableColors[0]);
+  const [selectedColor, setSelectedColor] = useState();
 
   async function fetchAvailableColors(itemId) {
     const itemRef = ref(database, `/${itemId}/availableColors`);

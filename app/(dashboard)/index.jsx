@@ -8,9 +8,8 @@ import { filterWhiteIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import { Link } from 'expo-router';
 import { database } from '../../firebase/firebase'
-import { getDatabase, ref, orderByKey, limitToFirst, DataSnapshot, get, query, startAfter } from 'firebase/database';
+import {ref, orderByKey, limitToFirst, get, query, startAfter } from 'firebase/database';
 import { useEffect, useState } from 'react';
-import { filterShoes } from '../../utility/filterShoes';
 
 const INITIAL_BATCH_SIZE = 10;
 
@@ -42,7 +41,6 @@ export default function HomeScreen() {
     };
 
     fetchData();
-    filterShoes({brand: 'nike'})
   }, []);
 
   const handleEndReached = async () => {
