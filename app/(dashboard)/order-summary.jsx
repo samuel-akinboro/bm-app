@@ -1,11 +1,22 @@
 import { StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView, StatusBar } from 'react-native';
 import { Text, View } from '../../components/Themed';
 import Sizes from '../../constants/Sizes';
-import { chevronRightIcon } from '../../constants/Icons';
+import { chevronRightIcon, tickCircleIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import { Link } from 'expo-router';
+import { useSelector } from 'react-redux';
+import { totalAmount } from '../../providers/cart';
+import CurrencyFormatter from '../../utility/currencyFormatter';
+import { router } from 'expo-router';
+import { useState } from 'react';
+import Modal from "react-native-modal";
 
 export default function OrderSummaryScreen() {
+  const SHIPPING_FEE = 20;
+  const cartItems = useSelector(state => state.cart.cart);
+  const totalPrice = useSelector(totalAmount);
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle='dark-content' />
@@ -48,27 +59,15 @@ export default function OrderSummaryScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Order Detail</Text>
           <View style={styles.orderList}>
-            <View style={[styles.subSection, {marginTop: 0}]}>
-              <Text style={styles.subSectionTitle}>Jordan 1 Retro High Tie Dye</Text>
-              <View style={styles.subSectionRow}>
-                <Text style={styles.itemDetail}>Nike . Red Grey . 40 . Qty 1</Text>
-                <Text style={styles.itemPrice}>$235,00</Text>
+            {cartItems.map((item, i) => (
+              <View style={[styles.subSection, {marginTop: 0}]} key={i}>
+                <Text style={styles.subSectionTitle}>{item.name}</Text>
+                <View style={styles.subSectionRow}>
+                  <Text style={styles.itemDetail}>{item.brand} . {item.color} . {item.size} . Qty {item.quantity}</Text>
+                  <Text style={styles.itemPrice}>{CurrencyFormatter(item.price * item.quantity)}</Text>
+                </View>
               </View>
-            </View>
-            <View style={[styles.subSection, {marginTop: 0}]}>
-              <Text style={styles.subSectionTitle}>Jordan 1 Retro High Tie Dye</Text>
-              <View style={styles.subSectionRow}>
-                <Text style={styles.itemDetail}>Nike . Red Grey . 40 . Qty 1</Text>
-                <Text style={styles.itemPrice}>$235,00</Text>
-              </View>
-            </View>
-            <View style={[styles.subSection, {marginTop: 0}]}>
-              <Text style={styles.subSectionTitle}>Jordan 1 Retro High Tie Dye</Text>
-              <View style={styles.subSectionRow}>
-                <Text style={styles.itemDetail}>Nike . Red Grey . 40 . Qty 1</Text>
-                <Text style={styles.itemPrice}>$235,00</Text>
-              </View>
-            </View>
+            ))}
           </View>
         </View>
 
@@ -77,11 +76,11 @@ export default function OrderSummaryScreen() {
           <Text style={styles.sectionTitle}>Payment Detail</Text>
           <View style={styles.subSectionRow}>
             <Text style={styles.itemDetail}>Sub Total</Text>
-            <Text style={[styles.itemPrice, {fontSize: 16}]}>$705.00</Text>
+            <Text style={[styles.itemPrice, {fontSize: 16}]}>{CurrencyFormatter(totalPrice)}</Text>
           </View>
           <View style={[styles.subSectionRow, {marginTop: 20}]}>
             <Text style={styles.itemDetail}>Shipping</Text>
-            <Text style={[styles.itemPrice, {fontSize: 16}]}>$20.00</Text>
+            <Text style={[styles.itemPrice, {fontSize: 16}]}>{CurrencyFormatter(SHIPPING_FEE)}</Text>
           </View>
           <View style={{
             height: 1,
@@ -90,7 +89,7 @@ export default function OrderSummaryScreen() {
           }} />
           <View style={styles.subSectionRow}>
             <Text style={styles.itemDetail}>Total Order</Text>
-            <Text style={[styles.itemPrice, {fontSize: 18}]}>$725.00</Text>
+            <Text style={[styles.itemPrice, {fontSize: 18}]}>{CurrencyFormatter(totalPrice + SHIPPING_FEE)}</Text>
           </View>
         </View>
 
@@ -100,12 +99,66 @@ export default function OrderSummaryScreen() {
       <View style={styles.footer}>
         <View style={styles.footerLeft}>
           <Text style={styles.footerPriceTag}>Grand Total</Text>
-          <Text style={styles.footerPrice}>$235.00</Text>
+          <Text style={styles.footerPrice}>{CurrencyFormatter(totalPrice + SHIPPING_FEE)}</Text>
         </View>
-        <TouchableOpacity style={styles.footerBtn}>
+        <TouchableOpacity style={styles.footerBtn} onPress={() => setShowSuccessModal(true)}>
           <Text style={styles.footerBtnText}>PAYMENT</Text>
         </TouchableOpacity>
       </View>
+
+      <Modal
+        isVisible={showSuccessModal}
+        style={{
+          justifyContent: 'flex-end',
+          margin: 0
+        }}
+        swipeDirection="down"
+        avoidKeyboard={true}
+        onBackButtonPress={() => setShowSuccessModal(false)}
+        onDismiss={() => setShowSuccessModal(false)}
+        onBackdropPress={() => setShowSuccessModal(false)}
+        onSwipeComplete={() => setShowSuccessModal(false)}
+      > 
+        <View style={styles.modalContainer}>
+          <View style={styles.modalHandle} />
+          <Image 
+            source={tickCircleIcon} 
+            style={{
+              height: 100,
+              width: 100,
+              objectFit: 'contain',
+              alignSelf: 'center',
+              marginTop: 25,
+              marginBottom: 10,
+            }}
+          />
+          <Text 
+            style={[
+              styles.modalTopText,
+              {
+                textAlign: 'center',
+                fontFamily: 'semibold',
+                fontSize: 24,
+                marginBottom: 20
+              }
+            ]}
+          >Order Created !</Text>
+          
+          {/* footer */}
+          <View style={[styles.modalFooter, {gap: 15}]}>
+
+            <TouchableOpacity 
+              onPress={() => {
+                setShowSuccessModal(false);
+                router.push('/')
+              }}
+              style={[styles.footerBtn, {flex: 1}]}
+            >
+              <Text style={styles.footerBtnText}>BACK TO EXPLORE</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -211,5 +264,73 @@ const styles = StyleSheet.create({
   },
   orderList: {
     gap: 20
+  },
+  modalContainer: {
+    backgroundColor: '#fff',
+    padding: Sizes.padding,
+    borderTopRightRadius: Sizes.radius,
+    borderTopLeftRadius: Sizes.radius
+  },
+  modalFooter: {
+    height: 57,
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 15,
+    marginTop: 5
+  },
+  modalHandle: {
+    height: 4,
+    width: 44,
+    backgroundColor: '#E7E7E7',
+    borderRadius: 10,
+    alignSelf: 'center'
+  },
+  modalTop: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 25
+  },
+  modalTopText: {
+    fontSize: 20,
+    fontFamily: 'bold',
+    color: Colors.light.text
+  },
+  modalTopIcon: {
+    height: 18,
+    width: 18,
+    objectFit: 'contain'
+  },
+  quantityTitle: {
+    fontFamily: 'bold',
+    color: Colors.light.text
+  },
+  quantityBox: {
+    marginVertical: 20,
+    borderBottomWidth: 1,
+    borderColor: Colors.light.text,
+    paddingBottom: 10
+  },
+  quantityRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 15
+  },
+  quantityInput: {
+    flex: 1,
+    paddingVertical: 10,
+    paddingTop: 15
+  },
+  quantityBtns: {
+    flexDirection: 'row',
+    gap: 15,
+    alignItems: 'center'
+  },
+  quantityBtn: {
+    objectFit: 'contain',
+    height: 24, 
+    width: 24
   }
 });

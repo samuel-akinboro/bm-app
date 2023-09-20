@@ -26,10 +26,8 @@ export const cartSlice = createSlice({
               item.quantity -= 1
             }
           }
-
           return item;
         }
-
         return item;
       })
     },
@@ -40,6 +38,8 @@ export const cartSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addItem, removeItem, incrementDecrementItem, clear } = cartSlice.actions
+export const { addItem, removeItem, incrementDecrementItem, clear } = cartSlice.actions;
+
+export const totalAmount = (state) => state.cart.cart.reduce((total, item) => total + (item.price * item.quantity), 0)
 
 export default cartSlice.reducer

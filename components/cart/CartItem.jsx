@@ -48,7 +48,7 @@ const CartItem = ({item, index}) => {
           <Text style={styles.boxTitle} numberOfLines={1}>{item.name}</Text>
           <Text style={styles.boxDesc}>{item.brand} . {item.color} . {item.size}</Text>
           <View style={styles.boxRow}>
-            <Text style={styles.price}>{CurrencyFormatter(item.price * item.quantity)}</Text>
+            <Text style={styles.price}>{CurrencyFormatter(item.price)}</Text>
             <View style={styles.cartBtns}>
               <TouchableOpacity
                 onPress={() => {

@@ -4,9 +4,13 @@ import Sizes from '../../constants/Sizes';
 import Colors from '../../constants/Colors';
 import CartItem from '../../components/cart/CartItem';
 import { useSelector } from 'react-redux';
+import { totalAmount } from '../../providers/cart';
+import CurrencyFormatter from '../../utility/currencyFormatter';
+import { router } from 'expo-router';
 
 export default function CartScreen() {
   const cartItems = useSelector(state => state.cart.cart);
+  const totalPrice = useSelector(totalAmount)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -23,9 +27,14 @@ export default function CartScreen() {
       <View style={styles.footer}>
         <View style={styles.footerLeft}>
           <Text style={styles.footerPriceTag}>Grand Total</Text>
-          <Text style={styles.footerPrice}>$235.00</Text>
+          <Text style={styles.footerPrice}>{CurrencyFormatter(totalPrice)}</Text>
         </View>
-        <TouchableOpacity style={styles.footerBtn}>
+        <TouchableOpacity 
+          style={styles.footerBtn}
+          onPress={() => {
+            router.push('/order-summary')
+          }}
+        >
           <Text style={styles.footerBtnText}>CHECKOUT</Text>
         </TouchableOpacity>
       </View>
