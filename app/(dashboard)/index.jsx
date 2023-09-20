@@ -8,7 +8,7 @@ import { filterWhiteIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import { Link } from 'expo-router';
 import { database } from '../../firebase/firebase'
-import { getDatabase, ref, orderByKey, limitToFirst, DataSnapshot, get, query } from 'firebase/database';
+import { getDatabase, ref, orderByKey, limitToFirst, DataSnapshot, get, query, startAfter } from 'firebase/database';
 import { useEffect, useState } from 'react';
 import { filterShoes } from '../../utility/filterShoes';
 
@@ -45,6 +45,32 @@ export default function HomeScreen() {
     filterShoes({brand: 'nike'})
   }, []);
 
+  const handleEndReached = async () => {
+    setLoading(true)
+    if(data.length > 0) {
+      try {
+        const lastItem = data[data.length - 1];
+        const lastItemKey = lastItem ? lastItem.key : null; 
+        const dataRef = ref(database, '/');
+        const snapshot = await get(
+          query(dataRef, orderByKey(), startAfter(`${data.length - 1}`), limitToFirst(INITIAL_BATCH_SIZE))
+        );
+    
+        const newData = [];
+        snapshot.forEach((childSnapshot) => {
+          newData.push(childSnapshot.val());
+        });
+    
+        setData([...data, ...newData]);
+      } catch (error) {
+        console.error('Error fetching more data:', error);
+      }
+    }
+
+    setLoading(false)
+  };
+  
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle='dark-content' />
@@ -67,6 +93,8 @@ export default function HomeScreen() {
             {loading && <ActivityIndicator size='large' />}
           </View>
         )}
+        onEndReached={handleEndReached}
+        onEndReachedThreshold={0.3}
       />
       <Link href='/filter' asChild>
         <TouchableOpacity style={styles.filterBtn}>
