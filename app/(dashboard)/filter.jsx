@@ -50,6 +50,7 @@ export default function FilterScreen() {
   const [selectedBrand, setSelectedBrand] = useState(null);
   const filterState = useSelector(state => state.filter)
   console.log(filterState)
+  const [range, setRange] = useState([200, 750]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -90,7 +91,13 @@ export default function FilterScreen() {
         {/* Price Range */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Price Range</Text>
-          <RangePicker />
+          <RangePicker
+            range={range}
+            setRange={(range) => {
+              setRange(range);
+              dispatch(priceRange(range))
+            }}
+          />
         </View>
 
         {/* Sort By */}

@@ -3,9 +3,7 @@ import React from 'react'
 import { RangeSlider } from '@react-native-assets/slider'
 import Colors from '../../constants/Colors'
 
-const RangePicker = () => {
-  const [range, setRange] = React.useState([200, 750]);
-
+const RangePicker = ({range, setRange}) => {
   return (
     <View>
       <RangeSlider
