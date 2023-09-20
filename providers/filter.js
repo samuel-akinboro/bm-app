@@ -26,11 +26,11 @@ export const filterSlice = createSlice({
       state.activeFilters = Array.from(new Set([...state.activeFilters, 'sortBy'])); //remove duplicated filter
     },
     gender: (state, action) => {
-      state.sortBy = action.payload;
+      state.gender = action.payload;
       state.activeFilters = Array.from(new Set([...state.activeFilters, 'gender'])); //remove duplicated filter
     },
     color: (state, action) => {
-      state.sortBy = action.payload;
+      state.color = action.payload;
       state.activeFilters = Array.from(new Set([...state.activeFilters, 'color'])); //remove duplicated filter
     },
     reset: (state) => {

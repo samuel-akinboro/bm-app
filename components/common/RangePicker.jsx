@@ -7,7 +7,7 @@ const RangePicker = ({range, setRange}) => {
   return (
     <View>
       <RangeSlider
-        range={range}                  
+        range={!range ? [200, 750] : range}                  
         minimumValue={0}
         maximumValue={1750}
         step={1}
@@ -24,8 +24,8 @@ const RangePicker = ({range, setRange}) => {
         )}
       />
       <View style={styles.indicators}>
-        <Text style={styles.indicator}>{range[0] > 150 && '$0'}</Text>
-        <Text style={styles.indicator}>{range[1] < 1500 && '$1750'}</Text>
+        <Text style={styles.indicator}>{range ? range[0] > 150 && '$0' : '$0'}</Text>
+        <Text style={styles.indicator}>{range? range[1] < 1500 && '$1750' : '$1750'}</Text>
       </View>
     </View>
   )

@@ -5,11 +5,7 @@ import Colors from '../../constants/Colors'
 import { StarIcon } from '../../constants/Icons'
 import TimeAgo from '../../utility/timeAgo'
 
-interface Prop {
-  item: any
-}
-
-const ReviewCard = ({item}: Prop) => {
+const ReviewCard = ({item}) => {
   const rating = 5;
 
   return (

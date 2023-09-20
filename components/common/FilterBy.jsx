@@ -4,15 +4,13 @@ import React, { useState } from 'react'
 import Sizes from '../../constants/Sizes'
 import Colors from '../../constants/Colors'
 
-type Props = {
-  data?: {value: string, name: string}[]
-}
-
-const FilterByColor = ({
+const FilterBy = ({
   style,
-  data
-}: ViewProps & Props) => {
-  const [activeTab, setActiveTab] = useState(data ? data[0].name.toLowerCase() : '')
+  data,
+  selected,
+  setSelected
+}) => {
+  const [activeTab, setActiveTab] = useState(selected)
   
   return (
     <FlatList 
@@ -25,28 +23,21 @@ const FilterByColor = ({
         <TouchableOpacity 
           style={[
             styles.filter,
-            {borderColor: activeTab === item.name.toLowerCase() ? Colors.light.text : '#E7E7E7'}
+            {backgroundColor: activeTab === item.toLowerCase() ? Colors.light.text : '#fff'}
           ]}
           onPress={() => {
-            setActiveTab(item.name.toLowerCase())
+            setActiveTab(item.toLowerCase())
+            setSelected(item.toLowerCase())
           }}
         >
-          <View style={{
-            height: 20,
-            width: 20,
-            borderRadius: 30,
-            backgroundColor: item.value,
-            borderWidth: item.name.toLowerCase() === 'white' ? 1 : 0,
-            borderColor: '#E7E7E7'
-          }} />
-          <Text style={[styles.text]}>{item.name}</Text>
+          <Text style={[styles.text, {color: activeTab === item.toLowerCase() ? '#fff' : Colors.light.text}]}>{item}</Text>
         </TouchableOpacity>
       )}
     />
   )
 }
 
-export default FilterByColor
+export default FilterBy
 
 const styles = StyleSheet.create({
   container: {
@@ -61,10 +52,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 15,
-    borderColor: '#E7E7E7',
-    flexDirection: 'row',
-    gap: 10
+    paddingHorizontal: 20,
+    borderColor: '#E7E7E7'
   },
   text: {
     fontFamily: 'semibold',

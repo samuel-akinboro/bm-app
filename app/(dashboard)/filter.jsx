@@ -9,7 +9,8 @@ import RangePicker from '../../components/common/RangePicker';
 import FilterBy from '../../components/common/FilterBy';
 import FilterByColor from '../../components/common/FilterByColor';
 import { useDispatch, useSelector } from 'react-redux'
-import { brand, priceRange, sortBy, gender, color, reset} from '../../providers/filter'
+import { brand, priceRange, sortBy as bySortBy, gender as byGender, color as byColor, reset} from '../../providers/filter'
+import { useRouter } from 'expo-router';
 
 const brandsData = [
   {
@@ -49,8 +50,41 @@ export default function FilterScreen() {
   const dispatch = useDispatch();
   const [selectedBrand, setSelectedBrand] = useState(null);
   const filterState = useSelector(state => state.filter)
-  console.log(filterState)
-  const [range, setRange] = useState([200, 750]);
+  const [range, setRange] = useState(null);
+  const [gender, setGender] = useState(null);
+  const [sortBy, setSortBy] = useState(null);
+  const [color, setColor] = useState(null);
+
+  const router = useRouter()
+  
+  const applyFilter = () => {
+    if(selectedBrand){
+      dispatch(brand(selectedBrand?.name.toLowerCase()))
+    }
+    if(range){
+      dispatch(priceRange(range))
+    }
+    if(sortBy) {
+      dispatch(bySortBy(sortBy))
+    }
+    if(gender) {
+      dispatch(byGender(gender))
+    }
+    if(color) {
+      dispatch(byColor(color))
+    }
+
+    router.back()
+  }
+
+  const resetFilter = () => {
+    setColor(null)
+    setRange(null)
+    setSortBy(null)
+    setGender(null)
+    setSelectedBrand(null)
+    dispatch(reset())
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -68,10 +102,7 @@ export default function FilterScreen() {
             renderItem={({item, index}) => (
               <TouchableOpacity
                 key={index}
-                onPress={() => {
-                  setSelectedBrand(item)
-                  dispatch(brand(item?.name.toLowerCase()))
-                }}
+                onPress={() => setSelectedBrand(item)}
               >
                 <View style={styles.brandImageContainer}>
                   <Image source={item?.icon} style={styles.brandIcon} />
@@ -93,31 +124,36 @@ export default function FilterScreen() {
           <Text style={styles.sectionTitle}>Price Range</Text>
           <RangePicker
             range={range}
-            setRange={(range) => {
-              setRange(range);
-              dispatch(priceRange(range))
-            }}
+            setRange={setRange}
           />
         </View>
 
         {/* Sort By */}
         <View style={styles.sectionNoPadding}>
           <Text style={styles.sectionNoPaddingTitle}>Sort By</Text>
-          <FilterBy data={[
-            'Most Recent',
-            'Lowest Price',
-            'Highest Price'
-          ]} />
+          <FilterBy 
+            data={[
+              'Most Recent',
+              'Lowest Price',
+              'Highest Price'
+            ]} 
+            selected={sortBy}
+            setSelected={setSortBy}
+          />
         </View>
 
         {/* Gender */}
         <View style={styles.sectionNoPadding}>
           <Text style={styles.sectionNoPaddingTitle}>Gender</Text>
-          <FilterBy data={[
-            'Man',
-            'Woman',
-            'Unisex'
-          ]} />
+          <FilterBy 
+            data={[
+              'Man',
+              'Woman',
+              'Unisex'
+            ]} 
+            selected={gender}
+            setSelected={setGender}
+          />
         </View>
 
         {/* Color */}
@@ -129,6 +165,8 @@ export default function FilterScreen() {
               {value: '#101010', name: 'Black'},
               {value: '#FFF', name: 'White'}
             ]} 
+            selected={color}
+            setSelected={setColor}
           />
         </View>
 
@@ -136,15 +174,24 @@ export default function FilterScreen() {
         <View style={{height: 70}} />
       </ScrollView>
       <View style={[styles.footer, { justifyContent: filterState?.activeFilters?.length > 0 ? 'space-between' : 'flex-end'}]}>
-        {filterState?.activeFilters?.length > 0 && (
+        {[selectedBrand, range, sortBy, gender, color].filter(filter => filter != null)?.length > 0 && (
           <TouchableOpacity 
             style={[styles.footerBtn, {borderWidth: 1, borderColor: '#E7E7E7', backgroundColor: '#fff'}]}
-            onPress={() => dispatch(reset())}  
+            onPress={resetFilter}  
           >
-            <Text style={[styles.footerBtnText, {color: Colors.light.text}]}>RESET ({filterState?.activeFilters?.length})</Text>
+            <Text style={[styles.footerBtnText, {color: Colors.light.text}]}>RESET ({[selectedBrand, range, sortBy, gender, color].filter(filter => filter != null)?.length})</Text>
           </TouchableOpacity>
         )}
-        <TouchableOpacity style={styles.footerBtn}>
+        <TouchableOpacity 
+          style={[
+            styles.footerBtn,
+            {
+              opacity: [selectedBrand, range, sortBy, gender, color].filter(filter => filter != null)?.length > 0 ? 1 : 0.7
+            }
+          ]}
+          onPress={applyFilter}
+          disabled={[selectedBrand, range, sortBy, gender, color].filter(filter => filter != null)?.length === 0}
+        >
           <Text style={styles.footerBtnText}>APPLY</Text>
         </TouchableOpacity>
       </View>
