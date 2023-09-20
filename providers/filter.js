@@ -15,23 +15,23 @@ export const filterSlice = createSlice({
   reducers: {
     brand: (state, action) => {
       state.brand = action.payload;
-      state.activeFilters = Array.from(new Set([...activeFilters, 'brand'])); //remove duplicated filter
+      state.activeFilters = Array.from(new Set([...state.activeFilters, 'brand'])); //remove duplicated filter
     },
     priceRange: (state, action) => {
       state.priceRange = action.payload;
-      state.activeFilters = Array.from(new Set([...activeFilters, 'priceRange'])); //remove duplicated filter
+      state.activeFilters = Array.from(new Set([...state.activeFilters, 'priceRange'])); //remove duplicated filter
     },
     sortBy: (state, action) => {
       state.sortBy = action.payload;
-      state.activeFilters = Array.from(new Set([...activeFilters, 'sortBy'])); //remove duplicated filter
+      state.activeFilters = Array.from(new Set([...state.activeFilters, 'sortBy'])); //remove duplicated filter
     },
     gender: (state, action) => {
       state.sortBy = action.payload;
-      state.activeFilters = Array.from(new Set([...activeFilters, 'gender'])); //remove duplicated filter
+      state.activeFilters = Array.from(new Set([...state.activeFilters, 'gender'])); //remove duplicated filter
     },
     color: (state, action) => {
       state.sortBy = action.payload;
-      state.activeFilters = Array.from(new Set([...activeFilters, 'color'])); //remove duplicated filter
+      state.activeFilters = Array.from(new Set([...state.activeFilters, 'color'])); //remove duplicated filter
     },
     reset: (state) => {
       state.brand = null;

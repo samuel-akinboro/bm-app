@@ -1,17 +1,55 @@
 import { StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView, StatusBar } from 'react-native';
 import { Text, View } from '../../components/Themed';
 import Sizes from '../../constants/Sizes';
-import { checkIcon, nikeIcon } from '../../constants/Icons';
+import { adidasIcon, checkIcon, jordanIcon, nikeIcon, pumaIcon, reebokIcon, vansIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
-import { Link } from 'expo-router';
 import { FlatList } from 'react-native-gesture-handler';
 import { useState } from 'react';
 import RangePicker from '../../components/common/RangePicker';
 import FilterBy from '../../components/common/FilterBy';
 import FilterByColor from '../../components/common/FilterByColor';
+import { useDispatch, useSelector } from 'react-redux'
+import { brand, priceRange, sortBy, gender, color, reset} from '../../providers/filter'
+
+const brandsData = [
+  {
+    name: 'nike',
+    icon: nikeIcon,
+    items: 7
+  },
+  {
+    name: 'puma',
+    icon: pumaIcon,
+    items: 3
+  },
+  {
+    name: 'adidas',
+    icon: adidasIcon,
+    items: 4
+  },
+  {
+    name: 'reebok',
+    icon: reebokIcon,
+    items: 2
+  },
+  {
+    name: 'jordan',
+    icon: jordanIcon,
+    items: 3
+  }
+  ,
+  {
+    name: 'vans',
+    icon: vansIcon,
+    items: 2
+  }
+]
 
 export default function FilterScreen() {
+  const dispatch = useDispatch();
   const [selectedBrand, setSelectedBrand] = useState(null);
+  const filterState = useSelector(state => state.filter)
+  console.log(filterState)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -22,20 +60,28 @@ export default function FilterScreen() {
         <View style={styles.sectionNoPadding}>
           <Text style={styles.sectionNoPaddingTitle}>Brand</Text>
           <FlatList 
-            data={Array(10).fill("")}
+            data={brandsData}
             horizontal
             contentContainerStyle={{gap: Sizes.width * 0.10, paddingLeft: Sizes.padding}}
             showsHorizontalScrollIndicator={false}
             renderItem={({item, index}) => (
-              <TouchableOpacity>
+              <TouchableOpacity
+                key={index}
+                onPress={() => {
+                  setSelectedBrand(item)
+                  dispatch(brand(item?.name.toLowerCase()))
+                }}
+              >
                 <View style={styles.brandImageContainer}>
-                  <Image source={nikeIcon} style={styles.brandIcon} />
-                  <View style={styles.checkbox}>
-                    <Image source={checkIcon} style={styles.checkIcon} />
-                  </View>
+                  <Image source={item?.icon} style={styles.brandIcon} />
+                  {selectedBrand?.name?.toLowerCase() === item?.name?.toLowerCase() && (
+                    <View style={styles.checkbox}>
+                      <Image source={checkIcon} style={styles.checkIcon} />
+                    </View>
+                  )}
                 </View>
-                <Text style={styles.brandName}>NIKE</Text>
-                <Text style={styles.itemsCount}>1001 Items</Text>
+                <Text style={styles.brandName}>{item?.name}</Text>
+                <Text style={styles.itemsCount}>{item?.items} Items</Text>
               </TouchableOpacity>
             )}
           />
@@ -82,10 +128,15 @@ export default function FilterScreen() {
         {/* spacing */}
         <View style={{height: 70}} />
       </ScrollView>
-      <View style={styles.footer}>
-        <TouchableOpacity style={[styles.footerBtn, {borderWidth: 1, borderColor: '#E7E7E7', backgroundColor: '#fff'}]}>
-          <Text style={[styles.footerBtnText, {color: Colors.light.text}]}>RESET (4)</Text>
-        </TouchableOpacity>
+      <View style={[styles.footer, { justifyContent: filterState?.activeFilters?.length > 0 ? 'space-between' : 'flex-end'}]}>
+        {filterState?.activeFilters?.length > 0 && (
+          <TouchableOpacity 
+            style={[styles.footerBtn, {borderWidth: 1, borderColor: '#E7E7E7', backgroundColor: '#fff'}]}
+            onPress={() => dispatch(reset())}  
+          >
+            <Text style={[styles.footerBtnText, {color: Colors.light.text}]}>RESET ({filterState?.activeFilters?.length})</Text>
+          </TouchableOpacity>
+        )}
         <TouchableOpacity style={styles.footerBtn}>
           <Text style={styles.footerBtnText}>APPLY</Text>
         </TouchableOpacity>
@@ -116,7 +167,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: Sizes.padding
+    paddingHorizontal: Sizes.padding,
+    gap: 15
   },
   footerLeft: {
     gap: 10
@@ -137,7 +189,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 13,
     paddingHorizontal: 24,
-    borderRadius: 100
+    borderRadius: 100,
+    flex: 1
   },
   footerBtnText: {
     color: '#fff',
@@ -195,7 +248,8 @@ const styles = StyleSheet.create({
   brandName: {
     fontFamily: 'bold',
     textAlign: 'center',
-    marginTop: 15
+    marginTop: 15,
+    textTransform: 'uppercase'
   },
   itemsCount: {
     textAlign: 'center',

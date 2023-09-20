@@ -1,5 +1,10 @@
 export const StarIcon = require('../assets/images/star.png');
 export const nikeIcon = require('../assets/images/nike.png');
+export const pumaIcon = require('../assets/images/puma.png');
+export const vansIcon = require('../assets/images/vans.png');
+export const jordanIcon = require('../assets/images/jordan.png');
+export const adidasIcon = require('../assets/images/adidas.png');
+export const reebokIcon = require('../assets/images/reebok.png');
 export const cartIcon = require('../assets/images/cart.png');
 export const checkIcon = require('../assets/images/check.png')
 export const closeIcon = require('../assets/images/close.png')
