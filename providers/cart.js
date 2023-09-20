@@ -12,7 +12,9 @@ export const cartSlice = createSlice({
       state.cart = [...state.cart, action.payload];
     },
     removeItem: (state, action) => {
-      state.cart = state.cart.filter(item => item.id != action.payload.id)
+      const updatedCart = [...state.cart];
+      updatedCart.splice(action.payload.index, 1);
+      state.cart = updatedCart;
     },
     incrementDecrementItem: (state, action) => {
       state.cart = [...state.cart].map((item, i) => {

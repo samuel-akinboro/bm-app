@@ -5,11 +5,15 @@ import { addCircleIcon, minusCircleIcon, trashIcon } from '../../constants/Icons
 import Colors from '../../constants/Colors';
 import Sizes from '../../constants/Sizes';
 import CurrencyFormatter from '../../utility/currencyFormatter';
-import { incrementDecrementItem } from '../../providers/cart';
+import { incrementDecrementItem, removeItem } from '../../providers/cart';
 import { useDispatch } from 'react-redux';
 
 const CartItem = ({item, index}) => {
   const dispatch = useDispatch();
+
+  const deleteItem = () => {
+    dispatch(removeItem({index}))
+  }
 
   const renderRightActions = (_, dragX) => {
     const trans = dragX.interpolate({
@@ -19,7 +23,7 @@ const CartItem = ({item, index}) => {
     });
 
     return (
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity onPress={deleteItem}>
         <Animated.View style={[
             styles.delete,
             { transform: [{ translateX: trans }], }
