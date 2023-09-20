@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
+import { FlatList, StyleSheet, SafeAreaView, StatusBar, ActivityIndicator } from 'react-native';
 import { View } from '../../components/Themed';
 import Sizes from '../../constants/Sizes';
 import Categories from '../../components/common/Categories';
@@ -9,21 +9,14 @@ import { database } from '../../firebase/firebase';
 import { ref, get } from 'firebase/database';
 import filterReviewByRating from '../../utility/filterReviewsByRating'
 
-const demoDetails = {
-  ratings: 3.5,
-  reviews: {
-    count: 1023
-  },
-  availableSizes: ["39", "39.5", "40", "40.5", "41"],
-  availableColors: ["#fff", "#101010", "#638b8b", "#2952cc"]
-}
-
 export default function ProductReviewScreen() {
   const id = useLocalSearchParams();
   const [allReviews, setAllReviews] = useState([]);
   const [sortBy, setSortBy] = useState('all');
+  const [loading, setLoading] = useState(false);
   
   async function fetchReviews(shoeId) {
+    setLoading(true)
     const reviewsRef = ref(database, `/${shoeId}/reviews/reviews`);
 
     try {
@@ -31,6 +24,7 @@ export default function ProductReviewScreen() {
       if (snapshot.exists()) {
         const reviewsData = snapshot.val();
         setAllReviews(reviewsData)
+        setLoading(false)
         return reviewsData;
       } else {
         console.log('Shoe not found.');
@@ -80,7 +74,11 @@ export default function ProductReviewScreen() {
         contentContainerStyle={{
           gap: 20
         }}
-        ListFooterComponent={<View style={{height: 40}} />}
+        ListFooterComponent={(
+          <View style={{height: 40}}>
+            <ActivityIndicator size='large' />
+          </View>
+        )}
       />
     </SafeAreaView>
   );
