@@ -8,8 +8,10 @@ import { filterWhiteIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import { Link } from 'expo-router';
 import { database } from '../../firebase/firebase'
-import {ref, orderByKey, limitToFirst, get, query, startAfter } from 'firebase/database';
+import {ref, orderByKey, limitToFirst, get, query, startAfter, orderByChild, equalTo, startAt, endAt } from 'firebase/database';
 import { useEffect, useState } from 'react';
+import { capitalizeString, filterShoes } from '../../utility/filterShoes';
+import { useSelector } from 'react-redux';
 
 const INITIAL_BATCH_SIZE = 10;
 
@@ -17,6 +19,7 @@ export default function HomeScreen() {
   const [data, setData] = useState([]);
   const [brand, setBrand] = useState('all');
   const [loading, setLoading] = useState(true);
+  const filters = useSelector(state => state.filter)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,8 +27,20 @@ export default function HomeScreen() {
       try {
         const initialData = [];
         const dataRef = ref(database, '/');
+
+        let finalRef = dataRef;
+        
+        if(filters.brand) {
+          finalRef = query(dataRef, orderByChild("brand"), equalTo(capitalizeString(filters.brand)), limitToFirst(INITIAL_BATCH_SIZE))
+        }
+
+        if(filters.priceRange) {
+          finalRef = query(dataRef, orderByChild("price"), startAt(filters.priceRange[0]), endAt(filters.priceRange[1]), limitToFirst(INITIAL_BATCH_SIZE))
+        }
+
+
         const snapshot = await get(
-          query(dataRef, orderByKey(), limitToFirst(INITIAL_BATCH_SIZE))
+          finalRef
         );
 
         snapshot.forEach((childSnapshot) => {
@@ -41,7 +56,8 @@ export default function HomeScreen() {
     };
 
     fetchData();
-  }, []);
+    // filterShoes({brand: 'nike', priceRange: [0, 0]})
+  }, [filters]);
 
   const handleEndReached = async () => {
     setLoading(true)

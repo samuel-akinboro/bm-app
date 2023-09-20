@@ -10,8 +10,6 @@ const FilterBy = ({
   selected,
   setSelected
 }) => {
-  const [activeTab, setActiveTab] = useState(selected)
-  
   return (
     <FlatList 
       data={data}
@@ -23,14 +21,13 @@ const FilterBy = ({
         <TouchableOpacity 
           style={[
             styles.filter,
-            {backgroundColor: activeTab === item.toLowerCase() ? Colors.light.text : '#fff'}
+            {backgroundColor: selected === item.toLowerCase() ? Colors.light.text : '#fff'}
           ]}
           onPress={() => {
-            setActiveTab(item.toLowerCase())
             setSelected(item.toLowerCase())
           }}
         >
-          <Text style={[styles.text, {color: activeTab === item.toLowerCase() ? '#fff' : Colors.light.text}]}>{item}</Text>
+          <Text style={[styles.text, {color: selected === item.toLowerCase() ? '#fff' : Colors.light.text}]}>{item}</Text>
         </TouchableOpacity>
       )}
     />
@@ -57,6 +54,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'semibold',
-    fontSize: 16
+    fontSize: 16,
+    textTransform: 'capitalize'
   }
 })

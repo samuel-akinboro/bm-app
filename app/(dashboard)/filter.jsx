@@ -4,7 +4,7 @@ import Sizes from '../../constants/Sizes';
 import { adidasIcon, checkIcon, jordanIcon, nikeIcon, pumaIcon, reebokIcon, vansIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import { FlatList } from 'react-native-gesture-handler';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import RangePicker from '../../components/common/RangePicker';
 import FilterBy from '../../components/common/FilterBy';
 import FilterByColor from '../../components/common/FilterByColor';
@@ -46,6 +46,12 @@ const brandsData = [
   }
 ]
 
+const colorData = [
+  {value: '#FF4C5E', name: 'Red'},
+  {value: '#101010', name: 'Black'},
+  {value: '#FFF', name: 'White'}
+]
+
 export default function FilterScreen() {
   const dispatch = useDispatch();
   const [selectedBrand, setSelectedBrand] = useState(null);
@@ -55,7 +61,25 @@ export default function FilterScreen() {
   const [sortBy, setSortBy] = useState(null);
   const [color, setColor] = useState(null);
 
-  const router = useRouter()
+  const router = useRouter();
+
+  useEffect(() => {
+    if(filterState.brand) {
+      setSelectedBrand(brandsData.filter(b => b.name.toLowerCase() === filterState.brand.toLowerCase())[0])
+    }
+
+    if(filterState.priceRange) {
+      setRange(filterState.priceRange)
+    }
+
+    if(filterState.sortBy) {
+      setSortBy(filterState.sortBy)
+    }
+
+    if(filterState.gender) {
+      setSortBy(filterState.gender)
+    }
+  }, [])
   
   const applyFilter = () => {
     if(selectedBrand){
@@ -133,9 +157,9 @@ export default function FilterScreen() {
           <Text style={styles.sectionNoPaddingTitle}>Sort By</Text>
           <FilterBy 
             data={[
-              'Most Recent',
-              'Lowest Price',
-              'Highest Reviews'
+              'most recent',
+              'lowest price',
+              'highest reviews'
             ]} 
             selected={sortBy}
             setSelected={setSortBy}
@@ -160,11 +184,7 @@ export default function FilterScreen() {
         <View style={styles.sectionNoPadding}>
           <Text style={styles.sectionNoPaddingTitle}>Color</Text>
           <FilterByColor 
-            data={[
-              {value: '#FF4C5E', name: 'Red'},
-              {value: '#101010', name: 'Black'},
-              {value: '#FFF', name: 'White'}
-            ]} 
+            data={colorData} 
             selected={color}
             setSelected={setColor}
           />
