@@ -1,33 +1,29 @@
 export default function timeAgo(timestamp) {
-  const currentDate = new Date();
-  const inputDate = new Date(timestamp);
-  const timeDifference = currentDate - inputDate;
-
-  const seconds = Math.floor(timeDifference / 1000);
-  const minutes = Math.floor(seconds / 60);
-  const hours = Math.floor(minutes / 60);
-  const days = Math.floor(hours / 24);
-  const weeks = Math.floor(days / 7);
-  const months = Math.floor(days / 30);
-  const years = Math.floor(days / 365);
-
-  if (years > 0) {
-    return years === 1 ? "1 year ago" : `${years} years ago`;
-  } else if (months > 0) {
-    return months === 1 ? "1 month ago" : `${months} months ago`;
-  } else if (weeks > 0) {
-    return weeks === 1 ? "1 week ago" : `${weeks} weeks ago`;
-  } else if (days > 0) {
-    if (days === 1) {
-      return "yesterday";
-    } else if (days < 7) {
-      return `${days} days ago`;
+  const now = new Date();
+  const date = new Date(timestamp);
+  
+  // Calculate the time difference in milliseconds
+  const timeDiff = now - date;
+  
+  // Calculate days, hours, and minutes
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  
+  if (days === 0) {
+    if (hours === 0) {
+      if (minutes === 0) {
+        return "just now";
+      }
+      return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
     }
-  } else if (hours > 0) {
-    return `${hours} hours ago`;
-  } else if (minutes > 0) {
-    return `${minutes} minutes ago`;
+    return `${hours} hour${hours > 1 ? 's' : ''} ago`;
   }
-
-  return "just now";
+  if (days === 1) {
+    return "yesterday";
+  }
+  if (days <= 7) {
+    return `${days} day${days > 1 ? 's' : ''} ago`;
+  }
+  return date.toDateString();
 }

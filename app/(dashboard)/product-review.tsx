@@ -1,10 +1,13 @@
-import { FlatList, StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView, Animated, StatusBar } from 'react-native';
-import { Text, View } from '../../components/Themed';
+import { FlatList, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
+import { View } from '../../components/Themed';
 import Sizes from '../../constants/Sizes';
 import Categories from '../../components/common/Categories';
-import Colors from '../../constants/Colors';
-import { useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReviewCard from '../../components/common/ReviewCard';
+import { useLocalSearchParams } from 'expo-router';
+import { database } from '../../firebase/firebase';
+import { ref, get } from 'firebase/database';
+import filterReviewByRating from '../../utility/filterReviewsByRating'
 
 const demoDetails = {
   ratings: 3.5,
@@ -16,9 +19,32 @@ const demoDetails = {
 }
 
 export default function ProductReviewScreen() {
-  const scrollX = useRef(new Animated.Value(0)).current;
-  const [selectedSize, setSelectedSize] = useState(demoDetails.availableSizes[0])
-  const [selectedColor, setSelectedColor] = useState(demoDetails.availableColors[0]);
+  const id = useLocalSearchParams();
+  const [allReviews, setAllReviews] = useState([]);
+  const [sortBy, setSortBy] = useState('all');
+  
+  async function fetchReviews(shoeId) {
+    const reviewsRef = ref(database, `/${shoeId}/reviews/reviews`);
+
+    try {
+      const snapshot = await get(reviewsRef);
+      if (snapshot.exists()) {
+        const reviewsData = snapshot.val();
+        setAllReviews(reviewsData)
+        return reviewsData;
+      } else {
+        console.log('Shoe not found.');
+        return null;
+      }
+    } catch (error) {
+      console.error('Error fetching shoe:', error);
+      return null;
+    }
+  }
+
+  useEffect(() => {
+    fetchReviews(id["0"])
+  }, [])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -35,6 +61,8 @@ export default function ProductReviewScreen() {
         style={{
           marginVertical: 10
         }}
+        selected={sortBy}
+        setSelected={setSortBy}
       />
       <FlatList
         style={{
@@ -42,9 +70,12 @@ export default function ProductReviewScreen() {
           paddingTop: 10,
           paddingHorizontal: Sizes.padding
         }} 
-        data={Array(10).fill("")}
+        data={sortBy === 'all' ? allReviews : filterReviewByRating(allReviews, sortBy)}
         renderItem={({item, index}) => (
-          <ReviewCard key={index} />
+          <ReviewCard 
+            key={index} 
+            item={item}
+          />
         )}
         contentContainerStyle={{
           gap: 20

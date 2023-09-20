@@ -10,7 +10,7 @@ import { Link, router } from 'expo-router';
 import Modal from "react-native-modal";
 import { useLocalSearchParams } from 'expo-router';
 import { database } from '../../../firebase/firebase'
-import { ref, child, get, query, orderByChild, limitToFirst } from 'firebase/database';
+import { ref, child, get, query, orderByChild, limitToFirst, limitToLast } from 'firebase/database';
 import CurrencyFormatter from '../../../utility/currencyFormatter';
 
 const demoDetails = {
@@ -58,7 +58,7 @@ export default function ProductDetailScreen() {
   async function fetchReviews(itemId) {
     const reviewCountRef = ref(database, `/${itemId}/reviews/count`);
     const reviewsRef = ref(database, `/${itemId}/reviews/reviews`);
-    const reviewsQuery = query(reviewsRef, orderByChild('rating'), limitToFirst(3));
+    const reviewsQuery = query(reviewsRef, orderByChild('rating'), limitToLast(3));
     
     try {
       const snapshot = await get(reviewCountRef);
@@ -71,7 +71,7 @@ export default function ProductDetailScreen() {
         });
 
         setNumberOfReviews(reviewCount)
-        setReviews(reviews)
+        setReviews(reviews?.reverse())
         
       } else {
         console.log("No data available for the item");
@@ -224,7 +224,13 @@ export default function ProductDetailScreen() {
           <View style={styles.reviewsContainer}>
             {reviews.map((review, i) => <ReviewCard key={i} item={review} />)}
           </View>
-          <Link href='/product-review' asChild>
+          <Link
+            asChild
+            href={{
+              pathname: '/product-review',
+              params: item?.firebaseId
+            }}
+          >
             <TouchableOpacity style={styles.seeReviewsBtn}>
               <Text style={styles.seeReviewsBtnText}>SEE ALL REVIEW</Text>
             </TouchableOpacity>
@@ -267,7 +273,7 @@ export default function ProductDetailScreen() {
           {/* top */}
           <View style={styles.modalTop}>
             <Text style={styles.modalTopText}>Add to cart</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => setShowAddToCartModal(false)}>
               <Image source={closeIcon} style={styles.modalTopIcon} />
             </TouchableOpacity>
           </View>

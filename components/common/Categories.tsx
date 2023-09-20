@@ -5,14 +5,18 @@ import Sizes from '../../constants/Sizes'
 import Colors from '../../constants/Colors'
 
 type Props = {
-  data?: string[]
+  data?: string[],
+  selected: string,
+  setSelected: (value:string) => void
 }
 
 const Categories = ({
   style,
-  data
+  data,
+  selected,
+  setSelected
 }: ViewProps & Props) => {
-  const [activeTab, setActiveTab] = useState('all')
+  const [activeTab, setActiveTab] = useState(selected)
   
   return (
     <FlatList 
@@ -26,6 +30,7 @@ const Categories = ({
           style={{marginRight: 20}}
           onPress={() => {
             setActiveTab(item.toLowerCase())
+            setSelected(item.toLowerCase())
           }}
         >
           <Text style={[styles.text, {color: activeTab === item.toLowerCase() ? Colors.light.text : Colors.light.inactiveText}]}>{item}</Text>
