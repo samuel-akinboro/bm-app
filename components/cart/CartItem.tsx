@@ -4,9 +4,14 @@ import { Swipeable } from 'react-native-gesture-handler';
 import { addCircleIcon, minusCircleIcon, trashIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
 import Sizes from '../../constants/Sizes';
+import CurrencyFormatter from '../../utility/currencyFormatter';
+import { incrementDecrementItem } from '../../providers/cart';
+import { useDispatch } from 'react-redux';
 
-const CartItem = () => {
-  const renderRightActions = (_:any, dragX:Animated.AnimatedInterpolation<string>) => {
+const CartItem = ({item, index}) => {
+  const dispatch = useDispatch();
+
+  const renderRightActions = (_, dragX) => {
     const trans = dragX.interpolate({
       inputRange: [-100, 0],
       outputRange: [0, Sizes.width * 0.225],
@@ -32,23 +37,39 @@ const CartItem = () => {
         <View style={styles.productImageBackground}>
           <Image
             style={styles.productImage}
-            source={require('../../assets/images/shoe.png')}
+            source={{uri: item.image}}
           />
         </View>
         <View style={styles.box}>
-          <Text style={styles.boxTitle} numberOfLines={1}>Jordan 1 Retro High Tie Dye</Text>
-          <Text style={styles.boxDesc}>Adidas . Grey . 42</Text>
+          <Text style={styles.boxTitle} numberOfLines={1}>{item.name}</Text>
+          <Text style={styles.boxDesc}>{item.brand} . {item.color} . {item.size}</Text>
           <View style={styles.boxRow}>
-            <Text style={styles.price}>$250.00</Text>
+            <Text style={styles.price}>{CurrencyFormatter(item.price * item.quantity)}</Text>
             <View style={styles.cartBtns}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  dispatch(incrementDecrementItem({
+                    index,
+                    type: 'decrement'
+                  }))
+                }}
+              >
                 <Image
                   source={minusCircleIcon}
-                  style={styles.cartBtn}
+                  style={[styles.cartBtn, {
+                    tintColor: item.quantity > 1 ? Colors.light.text : '#b7b7b7'
+                  }]}
                 />
               </TouchableOpacity>
-              <Text style={styles.itemCount}>1</Text>
-              <TouchableOpacity>
+              <Text style={styles.itemCount}>{item.quantity}</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  dispatch(incrementDecrementItem({
+                    index,
+                    type: 'increment'
+                  }))
+                }}
+              >
                 <Image
                   source={addCircleIcon}
                   style={styles.cartBtn}

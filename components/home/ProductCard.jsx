@@ -7,7 +7,7 @@ import { StarIcon, nikeIcon } from '../../constants/Icons'
 import { Link } from 'expo-router'
 import CurrencyFormatter from '../../utility/currencyFormatter'
 
-const ProductCard = ({item}: any) => {
+const ProductCard = ({item}) => {
   return (
     <Link 
       href={{

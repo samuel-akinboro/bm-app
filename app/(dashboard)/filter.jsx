@@ -135,7 +135,7 @@ export default function FilterScreen() {
             data={[
               'Most Recent',
               'Lowest Price',
-              'Highest Price'
+              'Highest Reviews'
             ]} 
             selected={sortBy}
             setSelected={setSortBy}

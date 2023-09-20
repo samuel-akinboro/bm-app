@@ -12,6 +12,8 @@ import { useLocalSearchParams } from 'expo-router';
 import { database } from '../../../firebase/firebase'
 import { ref, child, get, query, orderByChild, limitToFirst, limitToLast } from 'firebase/database';
 import CurrencyFormatter from '../../../utility/currencyFormatter';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../../providers/cart'
 
 const demoDetails = {
   ratings: 3.5,
@@ -23,8 +25,10 @@ const demoDetails = {
 }
 
 export default function ProductDetailScreen() {
+  const dispatch = useDispatch();
   const item = useLocalSearchParams();
   const scrollX = useRef(new Animated.Value(0)).current;
+  const [quantity, setQuantity] = useState(1);
   const [showAddToCartModal, setShowAddToCartModal] = useState(false);
   const [availableColors, setAvailableColors] = useState([]);
   const [numberOfReviews, setNumberOfReviews] = useState(0);
@@ -91,6 +95,25 @@ export default function ProductDetailScreen() {
     });
     fetchReviews(item.firebaseId)
   }, [])
+
+  const addToCart = () => {
+    dispatch(addItem({
+      id: item.id,
+      firebaseId: item.firebaseId,
+      name: item.name,
+      brand: item.brand,
+      color: selectedColor?.name || availableColors[0]?.name,
+      size: selectedSize || item.availableSizes.split(',')[0],
+      price: item.price,
+      quantity: quantity,
+      image: item.productImage
+    }))
+
+    setShowAddToCartModal(false)
+    setTimeout(() => {
+      setShowSuccessModal(true);
+    }, 500)
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -204,7 +227,7 @@ export default function ProductDetailScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Size</Text>
           <View style={styles.availableSizes}>
-            {demoDetails.availableSizes.map((size, i) => (
+            {item.availableSizes.split(',').map((size, i) => (
               <TouchableOpacity key={i} style={[styles.sizeBtn, {backgroundColor: selectedSize === size ? Colors.light.text : '#fff'}]} onPress={() => setSelectedSize(size)}>
                 <Text style={[styles.sizeBtnText, {color: selectedSize === size ? '#fff' : '#6F6F6F'}]}>{size}</Text>
               </TouchableOpacity>
@@ -284,14 +307,26 @@ export default function ProductDetailScreen() {
             <View style={styles.quantityRow}>
               <TextInput
                 keyboardType='numeric'
-                value="1"
+                inputMode='numeric'
+                value={`${quantity}`}
                 style={styles.quantityInput}
+                onChangeText={(text) => setQuantity(Number(text))}
               />
               <View style={styles.quantityBtns}>
-                <TouchableOpacity>
-                  <Image source={minusCircleIcon} style={styles.quantityBtn} />
+                <TouchableOpacity
+                  onPress={() => {
+                    if(quantity > 1) {
+                      setQuantity(Number(quantity) - 1)
+                    }
+                  }}
+                >
+                  <Image source={minusCircleIcon} style={[styles.quantityBtn, { tintColor: quantity > 1 ? Colors.light.text : '#B7B7B7' }]} />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    setQuantity(Number(quantity) + 1)
+                  }}
+                >
                   <Image source={addCircleIcon} style={styles.quantityBtn} />
                 </TouchableOpacity>
               </View>
@@ -302,14 +337,9 @@ export default function ProductDetailScreen() {
           <View style={styles.modalFooter}>
             <View style={styles.footerLeft}>
               <Text style={styles.footerPriceTag}>Total Price</Text>
-              <Text style={styles.footerPrice}>$235.00</Text>
+              <Text style={styles.footerPrice}>{CurrencyFormatter(Number(item?.price) * quantity)}</Text>
             </View>
-            <TouchableOpacity style={styles.footerBtn} onPress={() => {
-              setShowAddToCartModal(false)
-              setTimeout(() => {
-                setShowSuccessModal(true);
-              }, 500)
-            }}>
+            <TouchableOpacity style={styles.footerBtn} onPress={addToCart}>
               <Text style={styles.footerBtnText}>ADD TO CART</Text>
             </TouchableOpacity>
           </View>
@@ -364,7 +394,7 @@ export default function ProductDetailScreen() {
                 marginBottom: 15
               }
             }
-          >1 Item Total</Text>
+          >{quantity} Item Total</Text>
           
           {/* footer */}
           <View style={[styles.modalFooter, {gap: 15}]}>

@@ -10,11 +10,12 @@ import { Link } from 'expo-router';
 import { database } from '../../firebase/firebase'
 import { getDatabase, ref, orderByKey, limitToFirst, DataSnapshot, get, query } from 'firebase/database';
 import { useEffect, useState } from 'react';
+import { filterShoes } from '../../utility/filterShoes';
 
 const INITIAL_BATCH_SIZE = 10;
 
 export default function HomeScreen() {
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState([]);
   const [brand, setBrand] = useState('all');
   const [loading, setLoading] = useState(true);
 
@@ -22,13 +23,13 @@ export default function HomeScreen() {
     const fetchData = async () => {
       setLoading(true)
       try {
-        const initialData:any = [];
+        const initialData = [];
         const dataRef = ref(database, '/');
         const snapshot = await get(
           query(dataRef, orderByKey(), limitToFirst(INITIAL_BATCH_SIZE))
         );
 
-        snapshot.forEach((childSnapshot: DataSnapshot) => {
+        snapshot.forEach((childSnapshot) => {
           initialData.push(childSnapshot.val());
         });
         
@@ -41,6 +42,7 @@ export default function HomeScreen() {
     };
 
     fetchData();
+    filterShoes({brand: 'nike'})
   }, []);
 
   return (

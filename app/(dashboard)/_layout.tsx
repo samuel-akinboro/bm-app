@@ -1,4 +1,4 @@
-import { Stack, useNavigation } from 'expo-router';
+import { Stack, router, useNavigation } from 'expo-router';
 import { Image, TouchableOpacity, useColorScheme } from 'react-native';
 import { StarIcon, backIcon, cartEmptyIcon } from '../../constants/Icons';
 import Colors from '../../constants/Colors';
@@ -29,9 +29,14 @@ export default function RootLayout() {
             </TouchableOpacity>
           ),
           headerRight: () => (
-            <TouchableOpacity style={{
-              padding: 5
-            }}>
+            <TouchableOpacity 
+              style={{
+                padding: 5
+              }}
+              onPress={() => {
+                router.push('/cart')
+              }}
+            >
               <Image source={cartEmptyIcon} style={{width: 24, height: 24, objectFit: 'contain'}} />
             </TouchableOpacity>
           ),

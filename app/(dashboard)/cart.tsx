@@ -3,17 +3,21 @@ import { Text, View } from '../../components/Themed';
 import Sizes from '../../constants/Sizes';
 import Colors from '../../constants/Colors';
 import CartItem from '../../components/cart/CartItem';
+import { useSelector } from 'react-redux';
 
 export default function CartScreen() {
+  const cartItems = useSelector(state => state.cart.cart);
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle='dark-content' />
       <FlatList
-        data={['', '', '']}
+        data={cartItems}
         style={styles.flatlist}
+        keyExtractor={(item, i) => `${item.id}-${i}`}
         contentContainerStyle={{gap: 30}}
         renderItem={({item, index}) => (
-          <CartItem key={index} />
+          <CartItem item={item} index={index} />
         )}
       />
       <View style={styles.footer}>
