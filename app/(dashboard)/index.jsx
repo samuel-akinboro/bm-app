@@ -12,6 +12,8 @@ import {ref, orderByKey, limitToFirst, get, query, startAfter, orderByChild, equ
 import { useEffect, useState } from 'react';
 import { capitalizeString, filterShoes } from '../../utility/filterShoes';
 import { useSelector } from 'react-redux';
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
 
 const INITIAL_BATCH_SIZE = 10;
 
@@ -19,7 +21,8 @@ export default function HomeScreen() {
   const [data, setData] = useState([]);
   const [brand, setBrand] = useState('all');
   const [loading, setLoading] = useState(true);
-  const filters = useSelector(state => state.filter)
+  const filters = useSelector(state => state.filter);
+  const [pageCount, setPageCount] = useState(INITIAL_BATCH_SIZE); //pagination
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,11 +66,20 @@ export default function HomeScreen() {
     setLoading(true)
     if(data.length > 0) {
       try {
-        const lastItem = data[data.length - 1];
-        const lastItemKey = lastItem ? lastItem.key : null; 
         const dataRef = ref(database, '/');
+
+        let finalRef = query(dataRef, orderByKey(), startAfter(`${data.length - 1}`), limitToFirst(INITIAL_BATCH_SIZE));
+        
+        if(filters.brand) {
+          finalRef = query(dataRef, orderByChild("brand"), equalTo(capitalizeString(filters.brand)), limitToFirst(INITIAL_BATCH_SIZE))
+        }
+
+        if(filters.priceRange) {
+          finalRef = query(dataRef, orderByChild("price"), startAt(filters.priceRange[0]), endAt(filters.priceRange[1]), limitToFirst(INITIAL_BATCH_SIZE))
+        }
+
         const snapshot = await get(
-          query(dataRef, orderByKey(), startAfter(`${data.length - 1}`), limitToFirst(INITIAL_BATCH_SIZE))
+          finalRef
         );
     
         const newData = [];
@@ -99,7 +111,7 @@ export default function HomeScreen() {
         style={styles.productList}
         data={data}
         numColumns={2}
-        keyExtractor={(item) => item?.id}
+        keyExtractor={item => item.id}
         columnWrapperStyle={{justifyContent: 'space-between'}}
         renderItem={({item}) => <ProductCard item={item} />}
         ListFooterComponent={(
