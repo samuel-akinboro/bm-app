@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, TouchableOpacity, Image, StatusBar } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity, Image, StatusBar, ActivityIndicator } from 'react-native';
 import { Text, View } from '../../components/Themed';
 import Header from '../../components/home/Header';
 import Sizes from '../../constants/Sizes';
@@ -62,7 +62,11 @@ export default function HomeScreen() {
         keyExtractor={(item) => item?.id}
         columnWrapperStyle={{justifyContent: 'space-between'}}
         renderItem={({item}) => <ProductCard item={item} />}
-        ListFooterComponent={<View style={{height: 80}} />}
+        ListFooterComponent={(
+          <View style={{height: 80}}>
+            {loading && <ActivityIndicator size='large' />}
+          </View>
+        )}
       />
       <Link href='/filter' asChild>
         <TouchableOpacity style={styles.filterBtn}>
