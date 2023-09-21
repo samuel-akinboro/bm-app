@@ -373,7 +373,7 @@ export default function ProductDetailScreen() {
                 fontSize: 24
               }
             ]}
-          >Add to cart</Text>
+          >Added to cart</Text>
 
           <Text 
             style={
