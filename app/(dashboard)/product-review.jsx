@@ -23,14 +23,16 @@ export default function ProductReviewScreen() {
       const snapshot = await get(reviewsRef);
       if (snapshot.exists()) {
         const reviewsData = snapshot.val();
-        setAllReviews(reviewsData)
+        setAllReviews(reviewsData);
         setLoading(false)
         return reviewsData;
       } else {
+        setLoading(false)
         console.log('Shoe not found.');
         return null;
       }
     } catch (error) {
+      setLoading(false)
       console.error('Error fetching shoe:', error);
       return null;
     }
@@ -76,7 +78,7 @@ export default function ProductReviewScreen() {
         }}
         ListFooterComponent={(
           <View style={{height: 40}}>
-            <ActivityIndicator size='large' />
+            {loading && <ActivityIndicator size='large' />}
           </View>
         )}
       />
