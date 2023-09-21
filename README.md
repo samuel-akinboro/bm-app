@@ -53,8 +53,8 @@ What i would do in my next try, is to, make the shoe objects as light as possibl
 
 Overall, it was an exciting project
 
-## New feature
-1. An animated splash screen
+## Add on
+1. Simple yet cool animated splash screen 🙂
 2. Adaptive app icons
    
 

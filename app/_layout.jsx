@@ -106,6 +106,7 @@ function AnimatedAppLoader({ children, image }) {
 
 function AnimatedSplashScreen({ children, image }) {
   const animation = useMemo(() => new Animated.Value(1), []);
+  const animation2 = useMemo(() => new Animated.Value(0), []);
   const [isAppReady, setAppReady] = useState(false);
   const [isSplashAnimationComplete, setAnimationComplete] = useState(false);
 
@@ -113,9 +114,14 @@ function AnimatedSplashScreen({ children, image }) {
     if (isAppReady) {
       Animated.timing(animation, {
         toValue: 0,
-        duration: 1000,
+        duration: 2000,
         useNativeDriver: true,
       }).start(() => setAnimationComplete(true));
+      Animated.timing(animation2, {
+        toValue: 1,
+        duration: 700,
+        useNativeDriver: true,
+      }).start(() => {});
     }
   }, [isAppReady]);
 
@@ -152,7 +158,7 @@ function AnimatedSplashScreen({ children, image }) {
               width: 75,
               height: 75,
               resizeMode: "contain",
-              marginTop: -10,
+              marginTop: 10,
               marginLeft: -5,
               transform: [
                 {
@@ -164,6 +170,26 @@ function AnimatedSplashScreen({ children, image }) {
             onLoadEnd={onImageLoaded}
             fadeDuration={0}
           />
+          <Animated.View
+            style={{
+              // position: 'absolute',
+              color: '#101010',
+              top: 10,
+              transform: [
+                {
+                  rotateX: animation2.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: ['270deg', '0deg']
+                  }),
+                },
+              ],
+            }}
+          >
+            <Text style={{
+              fontWeight: '700',
+              fontSize: 24
+            }}>SHOESLY</Text>
+          </Animated.View>
         </Animated.View>
       )}
     </View>
