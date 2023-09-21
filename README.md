@@ -57,10 +57,17 @@ Overall, it was an exciting project
 1. Simple yet cool animated splash screen 🙂
 2. Adaptive app icons
    
-<!-- Row 1 -->
-![Image 1](./assets/images/showcase1.png) ![Image 2](./assets/images/showcase2.png) ![Image 3](./assets/images/showcase3.png)
+## Gallery
+<p align="center">
+    <img src="./assets/images/showcase1.png" alt="" style="width: 30%;" />
+    <img src="./assets/images/showcase2.png" alt="" style="width: 30%;" />
+    <img src="./assets/images/showcase3.png" alt="" style="width: 30%;" />
+</p>
 
-<!-- Row 2 -->
-![Image 4](./assets/images/showcase4.png) ![Image 5](./assets/images/showcase5.png) ![Image 6](./assets/images/showcase6.png)
+<p align="center">
+    <img src="./assets/images/showcase4.png" alt="" style="width: 30%;" />
+    <img src="./assets/images/showcase5.png" alt="" style="width: 30%;" />
+    <img src="./assets/images/showcase6.png" alt="" style="width: 30%;" />
+</p>
 
 
