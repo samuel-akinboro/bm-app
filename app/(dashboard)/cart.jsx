@@ -23,6 +23,23 @@ export default function CartScreen() {
         renderItem={({item, index}) => (
           <CartItem item={item} index={index} />
         )}
+        ListEmptyComponent={(
+          <View style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: Sizes.height * 0.72,
+          }}>
+            <Text style={{
+              fontFamily: 'bold',
+              fontSize: 20
+            }}>CART EMPTY 🛒</Text>
+            <Text style={{
+              marginTop: 5,
+              fontSize: 16
+            }}>Your cart yearns for a shoeful future.</Text>
+          </View>
+        )}
       />
       <View style={styles.footer}>
         <View style={styles.footerLeft}>
